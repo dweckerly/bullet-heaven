@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 const ENEMY_SPEED: float = 30.0 
 
-func _ready() -> void:
-	$Area2D.area_entered.connect(on_area_entered)
+@onready var health_component: HealthComponent = $HealthComponent
+
 
 func _process(delta: float) -> void:
 	var direction: Vector2 = get_direction_to_player()
@@ -16,6 +16,3 @@ func get_direction_to_player() -> Vector2:
 	if player_node != null:
 		return (player_node.global_position - global_position).normalized()
 	return Vector2.ZERO
-
-func on_area_entered(other_area: Area2D):
-	queue_free()

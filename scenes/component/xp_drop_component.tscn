@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bybmmy6ar8yku"]
+
+[ext_resource type="Script" uid="uid://dcsjh2y5olwyi" path="res://scenes/component/xp_drop_component.gd" id="1_jrhcf"]
+[ext_resource type="PackedScene" uid="uid://kufflsysbmep" path="res://scenes/game_object/xp_gem/xp_gem.tscn" id="2_amtfg"]
+
+[node name="XPDropComponent" type="Node"]
+script = ExtResource("1_jrhcf")
+gem_scene = ExtResource("2_amtfg")

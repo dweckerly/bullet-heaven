@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cavrcakujupht"]
+[gd_scene load_steps=11 format=4 uid="uid://cavrcakujupht"]
 
 [ext_resource type="PackedScene" uid="uid://d4icyd1v5h3ce" path="res://scenes/ui/arena_time_ui.tscn" id="1_6q06x"]
 [ext_resource type="PackedScene" uid="uid://cqvibq1wff0hc" path="res://scenes/game_object/player/player.tscn" id="1_hyk8p"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://2phda5du3kqs" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://cht88nfjdx6c1" path="res://scenes/manager/enemy_manager.tscn" id="1_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://bbydsfpct2xlm" path="res://scenes/manager/arena_time_manager.tscn" id="2_ow5a4"]
-[ext_resource type="PackedScene" uid="uid://kufflsysbmep" path="res://scenes/game_object/xp_gem/xp_gem.tscn" id="7_hujxm"]
+[ext_resource type="PackedScene" uid="uid://buvr0mebnlvyh" path="res://scenes/ui/xp_bar.tscn" id="2_yyfjg"]
+[ext_resource type="PackedScene" uid="uid://ba0o7fl2ld5sd" path="res://scenes/manager/xp_manager.tscn" id="4_yyfjg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2fmo"]
 texture = ExtResource("1_iuonh")
@@ -457,9 +458,14 @@ sources/0 = SubResource("TileSetAtlasSource_k2fmo")
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_6q06x")]
 arena_time_manager = NodePath("../ArenaTimeManager")
 
+[node name="XPBar" parent="." node_paths=PackedStringArray("xp_manager") instance=ExtResource("2_yyfjg")]
+xp_manager = NodePath("../XPManager")
+
 [node name="ArenaTimeManager" parent="." instance=ExtResource("2_ow5a4")]
 
 [node name="EnemyManager" parent="." instance=ExtResource("1_l3cfh")]
+
+[node name="XPManager" parent="." instance=ExtResource("4_yyfjg")]
 
 [node name="GameCamera" parent="." instance=ExtResource("1_k2fmo")]
 
@@ -471,12 +477,3 @@ tile_set = SubResource("TileSet_l3cfh")
 
 [node name="Player" parent="." instance=ExtResource("1_hyk8p")]
 position = Vector2(148, 93)
-
-[node name="XPGem" parent="." instance=ExtResource("7_hujxm")]
-position = Vector2(107, 112)
-
-[node name="XPGem2" parent="." instance=ExtResource("7_hujxm")]
-position = Vector2(188, 119)
-
-[node name="XPGem3" parent="." instance=ExtResource("7_hujxm")]
-position = Vector2(178, 55)
