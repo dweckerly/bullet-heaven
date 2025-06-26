@@ -2,6 +2,8 @@ extends Node
 class_name XPManager
 
 signal xp_updated(current_xp: float, target_xp: float)
+signal level_up(new_level: int)
+
 const TARGET_XP_GROWTH: float = 5
 
 var current_xp: float = 0
@@ -20,6 +22,7 @@ func increment_xp(number: float) -> void:
 		target_xp += TARGET_XP_GROWTH
 		current_xp = 0
 		xp_updated.emit(current_xp, target_xp)
+		level_up.emit(current_level)
 
 
 func on_xp_gem_collected(number:float) -> void:

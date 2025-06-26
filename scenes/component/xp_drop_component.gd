@@ -18,6 +18,7 @@ func on_died() -> void:
 	
 	var spawn_position = (owner as Node2D).global_position
 	var gem_instance = gem_scene.instantiate() as Node2D
-	owner.get_parent().add_child(gem_instance)
+	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
+	entities_layer.add_child(gem_instance)
 	gem_instance.global_position = spawn_position
 	

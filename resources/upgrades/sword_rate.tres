@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://b6r1d8lll4o3i"]
+
+[ext_resource type="Script" uid="uid://y8osvm1j0bv4" path="res://resources/upgrades/ability_upgrade.gd" id="1_pyxp1"]
+
+[resource]
+script = ExtResource("1_pyxp1")
+id = "sword_rate"
+max_quantity = 5
+name = "Sword Spawn Rate"
+description = "Increases sword attack rate by 10%"
