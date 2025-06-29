@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://tl128r1woxtc"]
+[gd_scene load_steps=12 format=3 uid="uid://tl128r1woxtc"]
 
 [ext_resource type="Script" uid="uid://4fjmj62m724f" path="res://scenes/game_object/basic_enemy/basic_enemy.gd" id="1_gxg7h"]
 [ext_resource type="PackedScene" uid="uid://bi0t0ayosgcdb" path="res://scenes/component/health_component.tscn" id="2_isd1k"]
 [ext_resource type="Texture2D" uid="uid://cfl2xi52flvjp" path="res://scenes/game_object/basic_enemy/bat.png" id="2_xrbw7"]
 [ext_resource type="PackedScene" uid="uid://bybmmy6ar8yku" path="res://scenes/component/xp_drop_component.tscn" id="3_pcrk2"]
+[ext_resource type="PackedScene" uid="uid://bwlr7d6wtndt0" path="res://scenes/component/death_componnent.tscn" id="4_bq7hi"]
 [ext_resource type="PackedScene" uid="uid://cd1j348s6rxh8" path="res://scenes/component/hurtbox_component.tscn" id="4_elloc"]
 
 [sub_resource type="Animation" id="Animation_elloc"]
@@ -83,11 +84,16 @@ script = ExtResource("1_gxg7h")
 libraries = {
 &"": SubResource("AnimationLibrary_jkye5")
 }
+autoplay = "walk"
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_isd1k")]
 
 [node name="XPDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_pcrk2")]
 health_component = NodePath("../HealthComponent")
+
+[node name="DeathComponnent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_bq7hi")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_elloc")]
 health_component = NodePath("../HealthComponent")
