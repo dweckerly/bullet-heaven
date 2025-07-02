@@ -50,7 +50,7 @@ func pick_upgrades() -> Array[AbilityUpgrade]:
 			break
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades)
 		chosen_upgrades.append(chosen_upgrade)
-		
+	
 	return chosen_upgrades
 
 

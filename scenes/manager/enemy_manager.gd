@@ -45,8 +45,8 @@ func on_timer_timeout():
 	var enemy = enemy_scene.instantiate() as Node2D
 	
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
-	entities_layer.add_child(enemy)
 	enemy.global_position = get_spawn_position()
+	entities_layer.add_child(enemy)
 
 func on_arena_difficulty_increased(arean_difficulty: int):
 	var time_off = min((0.1 / 12) * arean_difficulty, 0.7)

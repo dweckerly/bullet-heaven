@@ -1,7 +1,41 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b2e0alg3bww78"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b2e0alg3bww78"]
 
 [ext_resource type="FontFile" uid="uid://bywvx3flxb65e" path="res://resources/theme/Bitfantasy.ttf" id="1_8ab6e"]
+[ext_resource type="Texture2D" uid="uid://cgnsye0qs3ycu" path="res://assets/ui/Frames.png" id="1_8n3oo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8n3oo"]
+texture = ExtResource("1_8n3oo")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 11.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(323, 627, 43, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_orw62"]
+texture = ExtResource("1_8n3oo")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+region_rect = Rect2(7, 39, 34, 34)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56c54"]
+texture = ExtResource("1_8n3oo")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(110, 462, 36, 38)
 
 [resource]
 default_font = ExtResource("1_8ab6e")
 default_font_size = 16
+AlternatePanelContainer/base_type = &"PanelContainer"
+AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_8n3oo")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_orw62")
+PanelContainer_3/base_type = &"PanelContainer"
+PanelContainer_3/styles/panel = SubResource("StyleBoxTexture_56c54")

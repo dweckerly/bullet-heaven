@@ -3,14 +3,15 @@ extends Node
 const MAX_RANGE: float = 100.0
 
 @export var sword_ability: PackedScene
+@onready var timer: Timer = $Timer
 
 var base_damage: float = 5
 var additional_damage_percent: float = 1.0
 var base_wait_time: float
 
 func _ready() -> void:
-	base_wait_time = $Timer.wait_time
-	$Timer.timeout.connect(on_timer_timeout)
+	base_wait_time = timer.wait_time
+	timer.timeout.connect(on_timer_timeout)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	
 func on_timer_timeout():
@@ -47,7 +48,7 @@ func on_timer_timeout():
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if upgrade.id == "sword_rate":
 		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
-		$Timer.wait_time = max(base_wait_time * (1 - percent_reduction), 0.1)
-		$Timer.start()
+		timer.wait_time = max(base_wait_time * (1 - percent_reduction), 0.1)
+		timer.start()
 	elif upgrade.id == "sword_damage":
 		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.15)
