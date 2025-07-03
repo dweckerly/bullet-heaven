@@ -5,4 +5,4 @@ func _ready() -> void:
 
 
 func on_pressed() -> void:
-	$AudioStreamPlayer.play()
+	$RandomAudioStreamPlayerComponent.play_random()

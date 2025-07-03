@@ -19,6 +19,7 @@ config/windows_native_icon="res://sword_icon.ico"
 [autoload]
 
 GameEvents="*res://scenes/autoload/game_events.tscn"
+MusicPlayer="*res://scenes/autoload/music_player.tscn"
 
 [debug]
 

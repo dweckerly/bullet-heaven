@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn84f1iqnjqtj"]
+
+[ext_resource type="AudioStream" uid="uid://pgfrnp52jblj" path="res://assets/audio/music/Chiptune Action Suspense main.wav" id="1_xlf3v"]
+[ext_resource type="Script" uid="uid://b3shftk882t4b" path="res://scenes/autoload/music_player.gd" id="2_pr75j"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_xlf3v")
+volume_db = -5.0
+autoplay = true
+bus = &"music"
+script = ExtResource("2_pr75j")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true

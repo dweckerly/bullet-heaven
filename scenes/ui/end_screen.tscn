@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://hs1l8do1byc8"]
+[gd_scene load_steps=9 format=3 uid="uid://hs1l8do1byc8"]
 
 [ext_resource type="Script" uid="uid://bfecbasomkwa3" path="res://scenes/ui/end_screen.gd" id="1_dtet5"]
+[ext_resource type="AudioStream" uid="uid://cbc502k103jj" path="res://assets/audio/sfx/Fanfare.wav" id="2_53v5j"]
 [ext_resource type="PackedScene" uid="uid://c2pjn075ofppf" path="res://scenes/ui/sound_button.tscn" id="2_n8r4t"]
+[ext_resource type="AudioStream" uid="uid://b2u2nypjj5idt" path="res://assets/audio/sfx/Loser.wav" id="3_e4cmn"]
 
 [sub_resource type="Animation" id="Animation_bd1lb"]
 length = 0.001
@@ -68,6 +70,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_k541j")
 }
 autoplay = "in"
+
+[node name="VictoryStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_53v5j")
+bus = &"ui"
+
+[node name="DefeatStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e4cmn")
+bus = &"ui"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
