@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://kufflsysbmep"]
+[gd_scene load_steps=9 format=3 uid="uid://kufflsysbmep"]
 
 [ext_resource type="Texture2D" uid="uid://031adgsgufe2" path="res://scenes/game_object/xp_gem/xp_gem.png" id="1_ct6q4"]
 [ext_resource type="Script" uid="uid://bgdmpi7b331db" path="res://scenes/game_object/xp_gem/xp_gem.gd" id="1_mlcw7"]
+[ext_resource type="PackedScene" uid="uid://c106e8kkata6g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="2_uxlw8"]
+[ext_resource type="AudioStream" uid="uid://cqnwkabwexs4l" path="res://assets/audio/sfx/XP Pickup 001.wav" id="3_w1pmw"]
+[ext_resource type="AudioStream" uid="uid://d3g6m4tr5ots8" path="res://assets/audio/sfx/XP Pickup 002.wav" id="4_pic25"]
+[ext_resource type="AudioStream" uid="uid://3c2q7x3uyk3y" path="res://assets/audio/sfx/XP Pickup 003.wav" id="5_0wcxj"]
+[ext_resource type="AudioStream" uid="uid://cmxsbcunbam5y" path="res://assets/audio/sfx/XP Pickup 004.wav" id="6_ci5se"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mlcw7"]
 
 [node name="XPGem" type="Node2D"]
 script = ExtResource("1_mlcw7")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("2_uxlw8")]
+streams = Array[AudioStream]([ExtResource("3_w1pmw"), ExtResource("4_pic25"), ExtResource("5_0wcxj"), ExtResource("6_ci5se")])
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

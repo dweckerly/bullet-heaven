@@ -1,7 +1,28 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwlr7d6wtndt0"]
+[gd_scene load_steps=15 format=3 uid="uid://bwlr7d6wtndt0"]
 
 [ext_resource type="Texture2D" uid="uid://cfl2xi52flvjp" path="res://scenes/game_object/basic_enemy/bat.png" id="1_f165l"]
 [ext_resource type="Script" uid="uid://dd8lw75m8uis" path="res://scenes/component/death_componnent.gd" id="1_j1ftf"]
+[ext_resource type="PackedScene" uid="uid://c106e8kkata6g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="3_mfjho"]
+[ext_resource type="AudioStream" uid="uid://dwcgprvvwvddh" path="res://assets/audio/sfx/Enemy hit 001.wav" id="4_2ymil"]
+[ext_resource type="AudioStream" uid="uid://fx5kca12lcon" path="res://assets/audio/sfx/Enemy hit 002.wav" id="5_bp720"]
+[ext_resource type="AudioStream" uid="uid://cqh2t180ec6xm" path="res://assets/audio/sfx/Enemy hit 003.wav" id="6_jhtvk"]
+[ext_resource type="AudioStream" uid="uid://bf3hewhp3dnbs" path="res://assets/audio/sfx/Enemy hit 004.wav" id="7_e234i"]
+[ext_resource type="AudioStream" uid="uid://dfbdxgtbvs2hr" path="res://assets/audio/sfx/Enemy hit 005.wav" id="8_wx71j"]
+
+[sub_resource type="Animation" id="Animation_6oohh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_j1ftf"]
 resource_name = "default"
@@ -30,21 +51,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"queue_free"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_6oohh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GPUParticles2D:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ugnur"]
@@ -96,3 +102,6 @@ one_shot = true
 fixed_fps = 0
 interpolate = false
 process_material = SubResource("ParticleProcessMaterial_kmuy5")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("3_mfjho")]
+streams = Array[AudioStream]([ExtResource("4_2ymil"), ExtResource("5_bp720"), ExtResource("6_jhtvk"), ExtResource("7_e234i"), ExtResource("8_wx71j")])

@@ -28,6 +28,7 @@ func collect() -> void:
 func disable_collision() -> void:
 	collision_shape_2d.disabled = true
 
+
 func on_area_entered(other_area: Area2D):
 	Callable(disable_collision).call_deferred()
 	
@@ -38,5 +39,7 @@ func on_area_entered(other_area: Area2D):
 	tween.tween_property(sprite, "scale", Vector2.ZERO, .1).set_delay(0.4)
 	tween.chain()
 	tween.tween_callback(collect)
+	
+	$RandomStreamPlayer2DComponent.play_random()
 	
 	

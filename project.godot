@@ -13,7 +13,8 @@ config_version=5
 config/name="Bullet-Heaven"
 run/main_scene="uid://cavrcakujupht"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://m2ldvycuminn"
+config/windows_native_icon="res://sword_icon.ico"
 
 [autoload]
 
@@ -37,6 +38,7 @@ player=""
 enemy=""
 entities_layer=""
 foreground_layer=""
+upgrade_card=""
 
 [gui]
 

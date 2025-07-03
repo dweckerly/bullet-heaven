@@ -1,14 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://cyjlx3jdlop2u"]
+[gd_scene load_steps=22 format=3 uid="uid://cyjlx3jdlop2u"]
 
 [ext_resource type="Script" uid="uid://djnxm4nsc2gvc" path="res://scenes/game_object/ghost_enemy/ghost_enemy.gd" id="1_56iff"]
 [ext_resource type="PackedScene" uid="uid://bi0t0ayosgcdb" path="res://scenes/component/health_component.tscn" id="1_sg22b"]
+[ext_resource type="PackedScene" uid="uid://c106e8kkata6g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="2_2ryfw"]
 [ext_resource type="PackedScene" uid="uid://bybmmy6ar8yku" path="res://scenes/component/xp_drop_component.tscn" id="2_lt1qg"]
 [ext_resource type="PackedScene" uid="uid://bwlr7d6wtndt0" path="res://scenes/component/death_componnent.tscn" id="3_56iff"]
+[ext_resource type="AudioStream" uid="uid://dwcgprvvwvddh" path="res://assets/audio/sfx/Enemy hit 001.wav" id="3_cql46"]
 [ext_resource type="PackedScene" uid="uid://by4cue4snomis" path="res://scenes/component/velocity_component.tscn" id="3_lt1qg"]
 [ext_resource type="PackedScene" uid="uid://cd1j348s6rxh8" path="res://scenes/component/hurtbox_component.tscn" id="4_4164g"]
+[ext_resource type="AudioStream" uid="uid://fx5kca12lcon" path="res://assets/audio/sfx/Enemy hit 002.wav" id="4_b073e"]
 [ext_resource type="PackedScene" uid="uid://c12puifh87qrt" path="res://scenes/component/hit_flash_component.tscn" id="5_o2ycf"]
+[ext_resource type="AudioStream" uid="uid://cqh2t180ec6xm" path="res://assets/audio/sfx/Enemy hit 003.wav" id="5_ubmke"]
 [ext_resource type="Texture2D" uid="uid://cwjfnwcf7puvp" path="res://scenes/game_object/ghost_enemy/ghost.png" id="5_w30su"]
 [ext_resource type="Shader" uid="uid://dr0wtfak85caa" path="res://scenes/component/hit_flash_component.gdshader" id="6_efbfi"]
+[ext_resource type="AudioStream" uid="uid://bf3hewhp3dnbs" path="res://assets/audio/sfx/Enemy hit 004.wav" id="6_l83im"]
+[ext_resource type="AudioStream" uid="uid://dfbdxgtbvs2hr" path="res://assets/audio/sfx/Enemy hit 005.wav" id="7_j5riq"]
 
 [sub_resource type="Animation" id="Animation_4164g"]
 length = 0.001
@@ -93,6 +99,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_w30su")
 }
 autoplay = "walk"
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("2_2ryfw")]
+streams = Array[AudioStream]([ExtResource("3_cql46"), ExtResource("4_b073e"), ExtResource("5_ubmke"), ExtResource("6_l83im"), ExtResource("7_j5riq")])
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_sg22b")]
 max_health = 30.0

@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b2e0alg3bww78"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://b2e0alg3bww78"]
 
 [ext_resource type="FontFile" uid="uid://bywvx3flxb65e" path="res://resources/theme/Bitfantasy.ttf" id="1_8ab6e"]
 [ext_resource type="Texture2D" uid="uid://cgnsye0qs3ycu" path="res://assets/ui/Frames.png" id="1_8n3oo"]
+[ext_resource type="Texture2D" uid="uid://cs4a6fvcchjy2" path="res://assets/ui/Inputs.png" id="2_56c54"]
+[ext_resource type="Texture2D" uid="uid://dv4eciya6rlbs" path="res://assets/ui/Bars-Sliders-Scrollbars.png" id="2_orw62"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8n3oo"]
 texture = ExtResource("1_8n3oo")
@@ -12,6 +14,30 @@ texture_margin_bottom = 11.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(323, 627, 43, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2l62"]
+texture = ExtResource("2_56c54")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 32, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cv7e8"]
+texture = ExtResource("2_56c54")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(0, 64, 48, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0uiih"]
+texture = ExtResource("2_56c54")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(64, 33, 48, 16)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_orw62"]
 texture = ExtResource("1_8n3oo")
@@ -31,11 +57,53 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(110, 462, 36, 38)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tu17m"]
+texture = ExtResource("2_orw62")
+texture_margin_left = 3.0
+texture_margin_top = 9.0
+texture_margin_right = 3.0
+texture_margin_bottom = 9.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(27, 66, 27, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwyt8"]
+texture = ExtResource("2_orw62")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_bottom = 3.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(27, 50, 23, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_65ii4"]
+texture = ExtResource("2_orw62")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(27, 2, 27, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j4h2o"]
+texture = ExtResource("2_orw62")
+texture_margin_left = 3.0
+texture_margin_top = 1.0
+texture_margin_right = 2.0
+texture_margin_bottom = 1.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(111, 91, 13, 7)
+
 [resource]
 default_font = ExtResource("1_8ab6e")
 default_font_size = 16
 AlternatePanelContainer/base_type = &"PanelContainer"
 AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_8n3oo")
+Button/styles/hover = SubResource("StyleBoxTexture_f2l62")
+Button/styles/normal = SubResource("StyleBoxTexture_cv7e8")
+Button/styles/pressed = SubResource("StyleBoxTexture_0uiih")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_orw62")
 PanelContainer_3/base_type = &"PanelContainer"
 PanelContainer_3/styles/panel = SubResource("StyleBoxTexture_56c54")
+ProgBar_2/base_type = &"ProgressBar"
+ProgBar_2/styles/background = SubResource("StyleBoxTexture_tu17m")
+ProgBar_2/styles/fill = SubResource("StyleBoxTexture_iwyt8")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_65ii4")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_j4h2o")

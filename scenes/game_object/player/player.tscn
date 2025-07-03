@@ -1,9 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqvibq1wff0hc"]
+[gd_scene load_steps=19 format=3 uid="uid://cqvibq1wff0hc"]
 
 [ext_resource type="Texture2D" uid="uid://bmxo6dh6j1pta" path="res://scenes/game_object/player/player.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://cbhhl36p34r4l" path="res://scenes/game_object/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://c106e8kkata6g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="2_28lpv"]
 [ext_resource type="PackedScene" uid="uid://mjd4q8ak6w16" path="res://scenes/ability/sword/sword_ability_controller/sword_ability_controller.tscn" id="2_gmlin"]
 [ext_resource type="PackedScene" uid="uid://bi0t0ayosgcdb" path="res://scenes/component/health_component.tscn" id="2_ss5pk"]
+[ext_resource type="PackedScene" uid="uid://by4cue4snomis" path="res://scenes/component/velocity_component.tscn" id="2_tj6oj"]
+[ext_resource type="AudioStream" uid="uid://n0tq600t2yb1" path="res://assets/audio/sfx/Player hit 001.wav" id="3_gbew5"]
+[ext_resource type="AudioStream" uid="uid://bb5b4sbxoq5s3" path="res://assets/audio/sfx/Player hit 002.wav" id="4_oxhc3"]
+[ext_resource type="AudioStream" uid="uid://db78hxxr6av6h" path="res://assets/audio/sfx/Player hit 003.wav" id="5_mxgtx"]
+[ext_resource type="AudioStream" uid="uid://57x23cjxguh6" path="res://assets/audio/sfx/Player hit 004.wav" id="6_l1g56"]
 
 [sub_resource type="Animation" id="Animation_tj6oj"]
 length = 0.001
@@ -92,10 +98,10 @@ _data = {
 &"walk": SubResource("Animation_ss5pk")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj6oj"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ss5pk"]
-bg_color = Color(0.752679, 0, 0.044692, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj6oj"]
+bg_color = Color(0.827451, 0, 0.172549, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3670"]
 radius = 15.0
@@ -116,6 +122,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_tj6oj")
 }
 
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("2_28lpv")]
+streams = Array[AudioStream]([ExtResource("3_gbew5"), ExtResource("4_oxhc3"), ExtResource("5_mxgtx"), ExtResource("6_l1g56")])
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_tj6oj")]
+max_speed = 50
+acceleration = 25.0
+
 [node name="HealthComponent" parent="." instance=ExtResource("2_ss5pk")]
 
 [node name="Abilities" type="Node" parent="."]
@@ -133,8 +146,8 @@ offset_top = -24.0
 offset_right = 16.0
 offset_bottom = -20.0
 pivot_offset = Vector2(16, 2)
-theme_override_styles/background = SubResource("StyleBoxFlat_tj6oj")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ss5pk")
+theme_override_styles/background = SubResource("StyleBoxFlat_ss5pk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tj6oj")
 max_value = 1.0
 value = 0.5
 show_percentage = false

@@ -9,10 +9,14 @@ const ACCELERATION_SMOOTHING = 25
 @onready var abilities = $Abilities
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $Visuals
+@onready var velocity_component: VelocityComponent = $VelocityComponent
 
 var number_colliding_bodies: int = 0
+var base_speed: float = 0
 
 func _ready() -> void:
+	base_speed = velocity_component.max_speed
+	
 	$CollisionArea2D.body_entered.connect(on_body_entered)
 	$CollisionArea2D.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
@@ -20,12 +24,12 @@ func _ready() -> void:
 	update_health_display()
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
+
 func _process(delta) -> void:
 	var movement_vector = get_movement_vector()
 	var direction = movement_vector.normalized()
-	var target_velocity = direction * PLAYER_SPEED
-	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTHING))
-	move_and_slide()
+	velocity_component.accelerate_in_direction(direction)
+	velocity_component.move(self)
 	
 	if movement_vector.x != 0 || movement_vector.y != 0:
 		animation_player.play("walk")
@@ -64,11 +68,14 @@ func on_damage_interval_timer_timeout() -> void:
 
 
 func on_health_changed() -> void:
+	GameEvents.emit_player_damaged()
 	update_health_display()
+	$RandomStreamPlayer2DComponent.play_random()
 	
 
 func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
-	if not ability_upgrade is Ability:
-		return
-	abilities.add_child((ability_upgrade as Ability).ability_controller_scene.instantiate())
-	
+	if ability_upgrade is Ability:
+		abilities.add_child((ability_upgrade as Ability).ability_controller_scene.instantiate())
+	elif ability_upgrade.id == "player_speed":
+		velocity_component.max_speed = base_speed + \
+		(base_speed * current_upgrades["player_speed"]["quantity"] * 0.25)
