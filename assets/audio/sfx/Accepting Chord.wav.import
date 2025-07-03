@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpgoaj7fmww6l"
+path="res://.godot/imported/Accepting Chord.wav-06328dabccf19d4fe9082736566acde2.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Accepting Chord.wav"
+dest_files=["res://.godot/imported/Accepting Chord.wav-06328dabccf19d4fe9082736566acde2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

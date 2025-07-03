@@ -1,6 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfechnmvkhkej"]
+[gd_scene load_steps=15 format=3 uid="uid://bfechnmvkhkej"]
 
 [ext_resource type="Script" uid="uid://cpdufgpray0cg" path="res://scenes/ui/ability_upgrade_card.gd" id="1_8ur3e"]
+[ext_resource type="PackedScene" uid="uid://bwlxkrjswevpl" path="res://scenes/component/random_audio_stream_player_component.tscn" id="2_jntrk"]
+[ext_resource type="AudioStream" uid="uid://dd2r7or8lot8" path="res://assets/audio/sfx/Hover Glitch A.wav" id="3_kvqqb"]
+[ext_resource type="AudioStream" uid="uid://6hnonqj2q1o" path="res://assets/audio/sfx/Hover Glitch B.wav" id="4_rc78b"]
+[ext_resource type="AudioStream" uid="uid://5gqqppry2nua" path="res://assets/audio/sfx/Hover Glitch C.wav" id="5_uq1wo"]
+[ext_resource type="AudioStream" uid="uid://dpgoaj7fmww6l" path="res://assets/audio/sfx/Accepting Chord.wav" id="6_fgi3g"]
 
 [sub_resource type="Animation" id="Animation_m44y0"]
 length = 0.001
@@ -39,6 +44,23 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jntrk"]
+resource_name = "discard"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8ur3e"]
@@ -97,23 +119,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -0.0872665, 0.0872665, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_jntrk"]
-resource_name = "discard"
-length = 0.1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c4j7u"]
@@ -201,6 +206,12 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_rxqlh")
 }
+
+[node name="HoverRandomAudioStreamPlayerComponent" parent="." instance=ExtResource("2_jntrk")]
+streams = Array[AudioStream]([ExtResource("3_kvqqb"), ExtResource("4_rc78b"), ExtResource("5_uq1wo")])
+
+[node name="SelectRandomAudioStreamPlayerComponent" parent="." instance=ExtResource("2_jntrk")]
+streams = Array[AudioStream]([ExtResource("6_fgi3g")])
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2

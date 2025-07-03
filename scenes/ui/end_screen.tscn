@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://hs1l8do1byc8"]
+[gd_scene load_steps=7 format=3 uid="uid://hs1l8do1byc8"]
 
 [ext_resource type="Script" uid="uid://bfecbasomkwa3" path="res://scenes/ui/end_screen.gd" id="1_dtet5"]
+[ext_resource type="PackedScene" uid="uid://c2pjn075ofppf" path="res://scenes/ui/sound_button.tscn" id="2_n8r4t"]
 
 [sub_resource type="Animation" id="Animation_bd1lb"]
 length = 0.001
@@ -114,12 +115,12 @@ layout_mode = 2
 text = "You won!"
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_n8r4t")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Restart"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_n8r4t")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit
