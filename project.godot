@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bullet-Heaven"
-run/main_scene="uid://cavrcakujupht"
+run/main_scene="uid://buqmoda24dv77"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://m2ldvycuminn"
 config/windows_native_icon="res://sword_icon.ico"

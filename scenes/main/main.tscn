@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ba0o7fl2ld5sd" path="res://scenes/manager/xp_manager.tscn" id="4_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://csm0ppc51hb34" path="res://scenes/manager/upgrade_manager.tscn" id="6_b1x3f"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2fmo"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_blune"]
 texture = ExtResource("1_iuonh")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -546,7 +546,7 @@ physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "ground"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_k2fmo")
+sources/0 = SubResource("TileSetAtlasSource_blune")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_a8run")
