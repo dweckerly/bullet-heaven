@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://by10e581vvvtr"]
+
+[ext_resource type="Script" uid="uid://bdvxutirg5hxa" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_f231p"]
+
+[resource]
+script = ExtResource("1_f231p")
+id = "xp_gain"
+max_quantity = 1
+title = "Increase Experience"
+description = "Increases experience gem drops by 10%."
