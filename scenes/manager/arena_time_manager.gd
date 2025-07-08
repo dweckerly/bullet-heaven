@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 		arena_difficulty += 1
 		arena_difficulty_increased.emit(arena_difficulty)
 
+
 func get_time_elapsed():
 	return timer.time_left
 
@@ -31,3 +32,4 @@ func on_timer_timeout() -> void:
 	var end_screen_instance = end_screen.instantiate()
 	add_child(end_screen_instance)
 	end_screen_instance.play_jingle()
+	MetaProgression.save()

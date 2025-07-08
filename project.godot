@@ -10,8 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Bullet-Heaven"
+config/name="NetherWave"
 run/main_scene="uid://buqmoda24dv77"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="NetherWave"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://m2ldvycuminn"
 config/windows_native_icon="res://sword_icon.ico"
