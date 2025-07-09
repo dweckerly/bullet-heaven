@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwn7oihkhwf8e"]
+
+[ext_resource type="Script" uid="uid://bneo4jqo0xpkg" path="res://scenes/ui/character_select_screen.gd" id="1_urb5n"]
+[ext_resource type="PackedScene" uid="uid://ct5bcykck4cvg" path="res://scenes/ui/character_card.tscn" id="2_0pnww"]
+[ext_resource type="PackedScene" uid="uid://c2pjn075ofppf" path="res://scenes/ui/sound_button.tscn" id="2_vd2mm"]
+
+[node name="CharacterSelectScreen" type="CanvasLayer"]
+script = ExtResource("1_urb5n")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 4
+
+[node name="CharacterCard" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard2" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard3" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard4" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard5" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard6" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard7" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard8" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard9" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard10" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard11" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard12" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard13" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard14" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard15" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="CharacterCard16" parent="MarginContainer/GridContainer" instance=ExtResource("2_0pnww")]
+layout_mode = 2
+
+[node name="BackButton" parent="." instance=ExtResource("2_vd2mm")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 66.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back"

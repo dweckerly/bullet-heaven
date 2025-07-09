@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1ybr8cpbiuw6"]
+[gd_scene load_steps=5 format=3 uid="uid://c1ybr8cpbiuw6"]
 
 [ext_resource type="Script" uid="uid://duooxhrngkyi1" path="res://scenes/ui/meta_menu.gd" id="1_1fp8g"]
 [ext_resource type="Script" uid="uid://bdvxutirg5hxa" path="res://resources/meta_upgrades/meta_upgrade.gd" id="2_5fsrx"]
 [ext_resource type="Resource" uid="uid://by10e581vvvtr" path="res://resources/meta_upgrades/xp_gain.tres" id="3_xe1at"]
 [ext_resource type="PackedScene" uid="uid://c2pjn075ofppf" path="res://scenes/ui/sound_button.tscn" id="4_5fsrx"]
-[ext_resource type="PackedScene" uid="uid://by11ggnuimac0" path="res://scenes/ui/meta_upgrade_card.tscn" id="4_xe1at"]
 
 [node name="MetaMenu" type="CanvasLayer"]
 layer = 2
@@ -32,42 +31,6 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 columns = 3
-
-[node name="MetaUpgradeCard" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard2" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard3" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard4" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard5" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard6" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard7" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard8" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard9" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard10" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard11" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard12" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_xe1at")]
-layout_mode = 2
 
 [node name="BackButton" parent="." instance=ExtResource("4_5fsrx")]
 unique_name_in_owner = true

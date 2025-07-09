@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://dw2dcj8ehaktw"]
+
+[ext_resource type="Script" uid="uid://dub5boqo31n4u" path="res://resources/upgrades/ability.gd" id="1_0k42e"]
+[ext_resource type="PackedScene" uid="uid://mjd4q8ak6w16" path="res://scenes/ability/sword/sword_ability_controller/sword_ability_controller.tscn" id="1_acgx6"]
+
+[resource]
+script = ExtResource("1_0k42e")
+ability_controller_scene = ExtResource("1_acgx6")
+id = "sword"
+max_quantity = 1
+name = "Sword"
+description = "Spawns a swinging sword at the nearest enemy."
+metadata/_custom_type_script = "uid://dub5boqo31n4u"

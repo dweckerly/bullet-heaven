@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct5bcykck4cvg"]
+
+[ext_resource type="Script" uid="uid://b0xh42c2bgpld" path="res://scenes/ui/character_card.gd" id="1_1b1wn"]
+[ext_resource type="Texture2D" uid="uid://bmxo6dh6j1pta" path="res://scenes/game_object/player/player.png" id="1_hb02x"]
+
+[node name="CharacterCard" type="PanelContainer"]
+custom_minimum_size = Vector2(76, 76)
+offset_right = 22.0
+offset_bottom = 22.0
+script = ExtResource("1_1b1wn")
+
+[node name="CharacterSprite" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_hb02x")
