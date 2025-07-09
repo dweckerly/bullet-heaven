@@ -9,7 +9,8 @@ func _ready() -> void:
 	
 
 func on_died() -> void:
-	if randf() > drop_percent:
+	var adjusted_drop_percent = drop_percent + (0.1 * MetaProgression.get_upgrade_count("xp_gain"))
+	if randf() > adjusted_drop_percent:
 		return
 	if gem_scene == null:
 		return
