@@ -12,6 +12,12 @@ func _ready() -> void:
 		var character_card_instance = character_card_scene.instantiate() as CharacterCard
 		grid_container.add_child(character_card_instance)
 		character_card_instance.set_character(character)
+		character_card_instance.selected.connect(on_character_selected.bind(character))
+
+
+func on_character_selected(character: Character) -> void:
+	GameEvents.emit_character_selected(character)
+	ScreenTransition.transition_to_scene("res://scenes/main/main.tscn")
 
 
 func on_back_pressed() -> void:

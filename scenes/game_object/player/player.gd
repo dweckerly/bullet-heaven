@@ -11,6 +11,7 @@ const ACCELERATION_SMOOTHING = 25
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $Visuals
 @onready var velocity_component: VelocityComponent = $VelocityComponent
+@onready var sprite_2d: Sprite2D = $Visuals/Sprite2D
 
 var number_colliding_bodies: int = 0
 var base_speed: float = 0
@@ -24,6 +25,7 @@ func _ready() -> void:
 	health_component.health_changed.connect(on_health_changed)
 	update_health_display()
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
+	set_character(GameEvents.get_selected_character())
 
 
 func _process(delta) -> void:
@@ -59,6 +61,11 @@ func update_health_display() -> void:
 	health_bar.value = health_component.get_health_percent()
 
 
+func set_character(character: Character) -> void:
+	sprite_2d.texture = character.sprite
+	abilities.add_child(character.starting_ability.ability_controller_scene.instantiate())
+
+
 func on_body_entered(other_body: Node2D) -> void:
 	number_colliding_bodies += 1
 	check_deal_damage()
@@ -84,3 +91,8 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + \
 		(base_speed * current_upgrades["player_speed"]["quantity"] * 0.25)
+
+
+func on_character_selected(character: Character) -> void:
+	print("on character selected")
+	set_character(character)

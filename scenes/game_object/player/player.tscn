@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cqvibq1wff0hc"]
+[gd_scene load_steps=18 format=3 uid="uid://cqvibq1wff0hc"]
 
 [ext_resource type="Texture2D" uid="uid://bmxo6dh6j1pta" path="res://scenes/game_object/player/player.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://cbhhl36p34r4l" path="res://scenes/game_object/player/player.gd" id="1_dovo2"]
@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://bb5b4sbxoq5s3" path="res://assets/audio/sfx/Player hit 002.wav" id="4_oxhc3"]
 [ext_resource type="AudioStream" uid="uid://db78hxxr6av6h" path="res://assets/audio/sfx/Player hit 003.wav" id="5_mxgtx"]
 [ext_resource type="AudioStream" uid="uid://57x23cjxguh6" path="res://assets/audio/sfx/Player hit 004.wav" id="6_l1g56"]
-[ext_resource type="PackedScene" uid="uid://v6vsrmpp0yef" path="res://scenes/ability/fist/fist_ability_controller/fist_ability_controller.tscn" id="9_28lpv"]
 
 [sub_resource type="Animation" id="Animation_tj6oj"]
 length = 0.001
@@ -132,8 +131,6 @@ acceleration = 25.0
 [node name="HealthComponent" parent="." instance=ExtResource("2_ss5pk")]
 
 [node name="Abilities" type="Node" parent="."]
-
-[node name="FistAbilityController" parent="Abilities" instance=ExtResource("9_28lpv")]
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5
