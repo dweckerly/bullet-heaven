@@ -4,8 +4,8 @@ class_name VelocityComponent
 @export var max_speed: int = 40
 @export var acceleration: float = 5
 
-var velocity = Vector2.ZERO
-
+var velocity: Vector2 = Vector2.ZERO
+var knockback: float = 0
 
 func accelerate_to_player() -> void:
 	var owner_node2d = owner as Node2D
@@ -16,12 +16,25 @@ func accelerate_to_player() -> void:
 	if player == null:
 		return
 	
-	var direction = (player.global_position - owner_node2d.global_position).normalized()
+	var direction = Vector2.ZERO
+	if knockback > 0:
+		print("knockback triggered")
+		print(knockback)
+		direction = (owner_node2d.global_position - player.global_position).normalized()
+		knockback = lerp(knockback, 0.0, 0.5)
+		if knockback < 0.001:
+			knockback = 0
+	else:
+		direction = (player.global_position - owner_node2d.global_position).normalized()
 	accelerate_in_direction(direction)
 
 
 func accelerate_in_direction(direction: Vector2) -> void:
-	var desired_velocity = direction * max_speed
+	var desired_velocity = Vector2.ZERO
+	if knockback > 0:
+		desired_velocity = direction * max_speed * knockback
+	else:
+		desired_velocity = direction * max_speed
 	velocity = velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
 
 
@@ -33,3 +46,8 @@ func move(character_body: CharacterBody2D) -> void:
 	character_body.velocity = velocity
 	character_body.move_and_slide()
 	velocity = character_body.velocity
+
+
+func receive_knockback(strength: float) -> void:
+	if strength > 0:
+		knockback = strength

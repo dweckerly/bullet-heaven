@@ -4,6 +4,7 @@ class_name HurtboxComponent
 signal hit
 
 @export var health_component: HealthComponent
+@export var velocity_component: VelocityComponent
 
 var floating_text_scene = preload("res://scenes/ui/floating_text.tscn")
 
@@ -18,6 +19,7 @@ func on_area_entered(other_area: Area2D) -> void:
 	
 	var hitbox_component = other_area as HitboxComponent
 	health_component.damage(hitbox_component.damage)
+	velocity_component.receive_knockback(hitbox_component.knockback)
 	
 	var floating_text = floating_text_scene.instantiate() as FloatingText
 	if floating_text == null: 

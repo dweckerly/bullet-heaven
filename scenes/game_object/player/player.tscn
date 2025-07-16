@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cqvibq1wff0hc"]
+[gd_scene load_steps=19 format=3 uid="uid://cqvibq1wff0hc"]
 
 [ext_resource type="Texture2D" uid="uid://bmxo6dh6j1pta" path="res://scenes/game_object/player/player.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://cbhhl36p34r4l" path="res://scenes/game_object/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://c106e8kkata6g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="2_28lpv"]
-[ext_resource type="PackedScene" uid="uid://mjd4q8ak6w16" path="res://scenes/ability/sword/sword_ability_controller/sword_ability_controller.tscn" id="2_gmlin"]
 [ext_resource type="PackedScene" uid="uid://bi0t0ayosgcdb" path="res://scenes/component/health_component.tscn" id="2_ss5pk"]
 [ext_resource type="PackedScene" uid="uid://by4cue4snomis" path="res://scenes/component/velocity_component.tscn" id="2_tj6oj"]
 [ext_resource type="AudioStream" uid="uid://n0tq600t2yb1" path="res://assets/audio/sfx/Player hit 001.wav" id="3_gbew5"]
@@ -135,8 +134,6 @@ acceleration = 25.0
 [node name="Abilities" type="Node" parent="."]
 
 [node name="BowAbilityController" parent="Abilities" instance=ExtResource("10_gbew5")]
-
-[node name="SwordAbilityController" parent="Abilities" instance=ExtResource("2_gmlin")]
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5
