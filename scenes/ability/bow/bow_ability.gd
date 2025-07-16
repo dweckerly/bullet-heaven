@@ -23,7 +23,6 @@ func on_timer_timeout() -> void:
 
 
 func on_area_entered(other_area: Area2D) -> void:
-	print("on area entered")
 	if not other_area is HurtboxComponent:
 		return
 	hits += 1

@@ -18,8 +18,6 @@ func accelerate_to_player() -> void:
 	
 	var direction = Vector2.ZERO
 	if knockback > 0:
-		print("knockback triggered")
-		print(knockback)
 		direction = (owner_node2d.global_position - player.global_position).normalized()
 		knockback = lerp(knockback, 0.0, 0.5)
 		if knockback < 0.001:
