@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const PLAYER_SPEED = 50
 const ACCELERATION_SMOOTHING = 25
@@ -40,11 +41,16 @@ func _process(delta) -> void:
 	if move_sign != 0:
 		visuals.scale = Vector2(move_sign, 1)
 
+
 func get_movement_vector() -> Vector2:
 	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	return Vector2(x_movement, y_movement)
 
+
+func get_move_sign() -> Variant:
+	return visuals.scale.x
+	
 
 func check_deal_damage() -> void:
 	if number_colliding_bodies == 0 || not damage_interval_timer.is_stopped():

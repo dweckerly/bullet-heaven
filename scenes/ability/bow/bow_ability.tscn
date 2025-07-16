@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7x3bl6qfpvhp"]
+
+[ext_resource type="Texture2D" uid="uid://c44qkjbi1akec" path="res://assets/objects/arrow.png" id="1_52tp7"]
+[ext_resource type="Script" uid="uid://cn34rc228fru0" path="res://scenes/ability/bow/bow_ability.gd" id="1_nwlx8"]
+[ext_resource type="PackedScene" uid="uid://db4hbpxr8eu7i" path="res://scenes/component/hitbox_component.tscn" id="2_nwlx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcc3h"]
+size = Vector2(20, 6)
+
+[node name="BowAbility" type="Node2D"]
+script = ExtResource("1_nwlx8")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.785398
+texture = ExtResource("1_52tp7")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_nwlx8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_wcc3h")

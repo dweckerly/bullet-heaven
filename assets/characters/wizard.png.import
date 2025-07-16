@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxecr2xyvyvg0"
-path="res://.godot/imported/axe.png-3b10fbad2ff91fb8deec3096e39d554e.ctex"
+uid="uid://dftkbbohp2fyt"
+path="res://.godot/imported/wizard.png-0a9e600c5b77ae654053294df68b55c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/ability/axe/axe.png"
-dest_files=["res://.godot/imported/axe.png-3b10fbad2ff91fb8deec3096e39d554e.ctex"]
+source_file="res://assets/characters/wizard.png"
+dest_files=["res://.godot/imported/wizard.png-0a9e600c5b77ae654053294df68b55c0.ctex"]
 
 [params]
 

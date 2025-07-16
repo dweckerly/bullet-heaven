@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdf3pns5inx7n"
-path="res://.godot/imported/sword.png-154f48c182103bb144217305b64c53fb.ctex"
+uid="uid://d2esx8dasi8d7"
+path="res://.godot/imported/valkyrie.png-6264c01dca4ec34780ca9aeeb3e1aec7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/ability/sword/sword.png"
-dest_files=["res://.godot/imported/sword.png-154f48c182103bb144217305b64c53fb.ctex"]
+source_file="res://assets/characters/valkyrie.png"
+dest_files=["res://.godot/imported/valkyrie.png-6264c01dca4ec34780ca9aeeb3e1aec7.ctex"]
 
 [params]
 

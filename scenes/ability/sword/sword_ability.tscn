@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ex8kncdar2ci"]
 
 [ext_resource type="Script" uid="uid://de1dgeulskgod" path="res://scenes/ability/sword/sword_ability.gd" id="1_4b605"]
-[ext_resource type="Texture2D" uid="uid://bdf3pns5inx7n" path="res://scenes/ability/sword/sword.png" id="1_4k4vq"]
+[ext_resource type="Texture2D" uid="uid://bdf3pns5inx7n" path="res://assets/objects/sword.png" id="1_4k4vq"]
 [ext_resource type="PackedScene" uid="uid://db4hbpxr8eu7i" path="res://scenes/component/hitbox_component.tscn" id="2_8xus8"]
 
 [sub_resource type="Animation" id="Animation_8xus8"]
