@@ -8,3 +8,4 @@ script = ExtResource("1_axmdq")
 bow_ability_scene = ExtResource("2_s0d23")
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true

@@ -134,9 +134,9 @@ acceleration = 25.0
 
 [node name="Abilities" type="Node" parent="."]
 
-[node name="SwordAbilityController" parent="Abilities" instance=ExtResource("2_gmlin")]
-
 [node name="BowAbilityController" parent="Abilities" instance=ExtResource("10_gbew5")]
+
+[node name="SwordAbilityController" parent="Abilities" instance=ExtResource("2_gmlin")]
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5

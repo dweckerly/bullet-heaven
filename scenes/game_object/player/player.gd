@@ -48,22 +48,21 @@ func get_movement_vector() -> Vector2:
 	return Vector2(x_movement, y_movement)
 
 
-func get_move_sign() -> Variant:
-	return visuals.scale.x
-	
-
 func check_deal_damage() -> void:
 	if number_colliding_bodies == 0 || not damage_interval_timer.is_stopped():
 		return
 	health_component.damage(1)
 	damage_interval_timer.start()
 
+
 func update_health_display() -> void:
 	health_bar.value = health_component.get_health_percent()
+
 
 func on_body_entered(other_body: Node2D) -> void:
 	number_colliding_bodies += 1
 	check_deal_damage()
+
 
 func on_body_exited(other_body: Node2D) -> void:
 	number_colliding_bodies -= 1
@@ -77,7 +76,7 @@ func on_health_changed() -> void:
 	GameEvents.emit_player_damaged()
 	update_health_display()
 	$RandomStreamPlayer2DComponent.play_random()
-	
+
 
 func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if ability_upgrade is Ability:
