@@ -14,7 +14,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	direction = face_player_movement_direction()
+	face_player_movement_direction()
+
 
 func on_timer_timeout() -> void:
 	if player == null:
@@ -30,10 +31,8 @@ func on_timer_timeout() -> void:
 	bow_instance.hitbox_component.damage = base_damage * additional_damage_percent
 
 
-func face_player_movement_direction() -> float:
+func face_player_movement_direction() -> void:
 	var movement_vector = player.get_movement_vector().normalized()
-	var direction = Vector2.ZERO
 	if movement_vector.x != 0 || movement_vector.y != 0:
 		last_movement_vector = movement_vector
 	direction = last_movement_vector.angle()
-	return direction

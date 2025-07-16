@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwn7oihkhwf8e"]
+[gd_scene load_steps=7 format=3 uid="uid://dwn7oihkhwf8e"]
 
 [ext_resource type="Script" uid="uid://bneo4jqo0xpkg" path="res://scenes/ui/character_select_screen.gd" id="1_urb5n"]
 [ext_resource type="Script" uid="uid://bulbjwm4n0h7q" path="res://resources/characters/character.gd" id="2_1axl5"]
 [ext_resource type="PackedScene" uid="uid://c2pjn075ofppf" path="res://scenes/ui/sound_button.tscn" id="2_vd2mm"]
 [ext_resource type="Resource" uid="uid://poco2bmpf76n" path="res://resources/characters/fighter.tres" id="3_nnlhe"]
 [ext_resource type="Resource" uid="uid://cpaymqvgvxfqf" path="res://resources/characters/orc.tres" id="4_idqr0"]
+[ext_resource type="Resource" uid="uid://wk1or41bdf66" path="res://resources/characters/archer.tres" id="5_nnlhe"]
 
 [node name="CharacterSelectScreen" type="CanvasLayer"]
 script = ExtResource("1_urb5n")
-characters = Array[ExtResource("2_1axl5")]([ExtResource("3_nnlhe"), ExtResource("4_idqr0")])
+characters = Array[ExtResource("2_1axl5")]([ExtResource("3_nnlhe"), ExtResource("4_idqr0"), ExtResource("5_nnlhe")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
