@@ -3,7 +3,7 @@ extends Node
 @export var bow_ability_scene: PackedScene
 
 var base_damage = 1
-var knockback_strength = 100
+#var knockback_strength = 100
 var additional_damage_percent = 1
 var last_movement_vector = Vector2.RIGHT
 var direction = Vector2.RIGHT.angle()
@@ -30,7 +30,7 @@ func on_timer_timeout() -> void:
 	bow_instance.global_position = player.global_position
 	bow_instance.rotation = direction
 	bow_instance.hitbox_component.damage = base_damage * additional_damage_percent
-	bow_instance.hitbox_component.knockback = knockback_strength
+	#bow_instance.hitbox_component.knockback = knockback_strength
 
 
 func face_player_movement_direction() -> void:
