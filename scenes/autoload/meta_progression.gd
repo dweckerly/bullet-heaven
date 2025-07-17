@@ -3,6 +3,7 @@ extends Node
 const SAVE_FILE_PATH = "user://game.save"
 
 var save_data: Dictionary = {
+	"gold": 0,
 	"meta_upgrade_currency": 0,
 	"meta_upgrades": {}
 }

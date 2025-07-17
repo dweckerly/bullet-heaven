@@ -10,6 +10,7 @@ signal upgrade_selected(upgrade: AbilityUpgrade)
 func _ready() -> void:
 	get_tree().paused = true
 
+
 func set_ability_upgrades(upgrades: Array[AbilityUpgrade]):
 	var animation_delay: float = 0
 	for upgrade in upgrades:
