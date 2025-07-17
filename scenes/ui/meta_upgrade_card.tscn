@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c5optmij0jvu6" path="res://scenes/ui/meta_upgrade_card.gd" id="1_q14vf"]
 [ext_resource type="PackedScene" uid="uid://bwlxkrjswevpl" path="res://scenes/component/random_audio_stream_player_component.tscn" id="2_f8fol"]
 [ext_resource type="AudioStream" uid="uid://dpgoaj7fmww6l" path="res://assets/audio/sfx/Accepting Chord.wav" id="6_rs261"]
-[ext_resource type="Texture2D" uid="uid://031adgsgufe2" path="res://scenes/game_object/xp_gem/xp_gem.png" id="7_egsc2"]
+[ext_resource type="Texture2D" uid="uid://031adgsgufe2" path="res://assets/objects/xp_gem.png" id="7_egsc2"]
 [ext_resource type="PackedScene" uid="uid://c2pjn075ofppf" path="res://scenes/ui/sound_button.tscn" id="8_v8h0w"]
 
 [sub_resource type="Animation" id="Animation_m44y0"]

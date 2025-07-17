@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://031adgsgufe2"
-path="res://.godot/imported/xp_gem.png-e57dedb0632b4b277cb204377cc4dc80.ctex"
+path="res://.godot/imported/xp_gem.png-98661282fe36163dae33f3688e6ad255.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game_object/xp_gem/xp_gem.png"
-dest_files=["res://.godot/imported/xp_gem.png-e57dedb0632b4b277cb204377cc4dc80.ctex"]
+source_file="res://assets/objects/xp_gem.png"
+dest_files=["res://.godot/imported/xp_gem.png-98661282fe36163dae33f3688e6ad255.ctex"]
 
 [params]
 
