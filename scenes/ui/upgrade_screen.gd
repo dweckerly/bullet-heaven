@@ -11,14 +11,14 @@ func _ready() -> void:
 	get_tree().paused = true
 
 
-func set_ability_upgrades(upgrades: Array[AbilityUpgrade]):
+func set_ability_upgrades(upgrades: Array[Dictionary]):
 	var animation_delay: float = 0
 	for upgrade in upgrades:
 		var card_instance = upgrade_card_scene.instantiate() as AbilityUpgradeCard
 		card_container.add_child(card_instance)
-		card_instance.set_ability_upgrade(upgrade)
+		card_instance.set_ability_upgrade(upgrade["upgrade"], upgrade["level"])
 		card_instance.play_in_animation(animation_delay)
-		card_instance.selected.connect(on_upgrade_selected.bind(upgrade))
+		card_instance.selected.connect(on_upgrade_selected.bind(upgrade["upgrade"]))
 		animation_delay += 0.2
 
 

@@ -1,31 +1,36 @@
 extends Node
 
+const BASE_WEIGHT: int = 10
+const UPGRADE_CHOICES: int = 2
+
 @export var xp_manager: XPManager
 @export var upgrade_screen_scene: PackedScene
 
 var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 
-var upgrade_axe = preload("res://resources/upgrades/axe.tres")
-var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
-var upgrade_box = preload("res://resources/upgrades/bow.tres")
-var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
-var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
-var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
+var axe = preload("res://resources/upgrades/axe.tres")
+var bow = preload("res://resources/upgrades/bow.tres")
+var sword = preload("res://resources/upgrades/sword.tres")
+var fist = preload("res://resources/upgrades/fist.tres")
+
+#var player_speed = preload("res://resources/upgrades/player_speed.tres")
 
 
 func _ready() -> void:
-	upgrade_pool.add_item(upgrade_axe, 10)
-	upgrade_pool.add_item(upgrade_sword_rate, 10)
-	upgrade_pool.add_item(upgrade_sword_damage, 10)
-	upgrade_pool.add_item(upgrade_player_speed, 10)
+	upgrade_pool.add_item(axe, BASE_WEIGHT)
+	upgrade_pool.add_item(bow, BASE_WEIGHT)
+	upgrade_pool.add_item(sword, BASE_WEIGHT)
+	upgrade_pool.add_item(fist, BASE_WEIGHT)
+	#upgrade_pool.add_item(player_speed, BASE_WEIGHT)
 	
 	xp_manager.level_up.connect(on_level_up)
 
 
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade) -> void:
-	if chosen_upgrade.id == upgrade_axe.id:
-		upgrade_pool.add_item(upgrade_axe_damage, 10)
+	var current_weight = upgrade_pool.get_weight(chosen_upgrade.id)
+	if current_weight != 0:
+		upgrade_pool.update_weight(chosen_upgrade.id, current_weight + BASE_WEIGHT / 5)
 
 
 func apply_upgrade(upgrade: AbilityUpgrade) -> void:
@@ -47,13 +52,18 @@ func apply_upgrade(upgrade: AbilityUpgrade) -> void:
 	GameEvents.emit_ability_upgrade_added(upgrade, current_upgrades)
 
 
-func pick_upgrades() -> Array[AbilityUpgrade]:
-	var chosen_upgrades: Array[AbilityUpgrade] = []
-	for i in 2:
+func pick_upgrades() -> Array[Dictionary]:
+	var chosen_upgrades: Array[Dictionary] = []
+	var exclude_upgrades: Array = []
+	for i in UPGRADE_CHOICES:
 		if upgrade_pool.items.size() == chosen_upgrades.size():
 			break
-		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades)
-		chosen_upgrades.append(chosen_upgrade)
+		var chosen_upgrade = upgrade_pool.pick_item(exclude_upgrades)
+		exclude_upgrades.append(chosen_upgrade)
+		if current_upgrades.has(chosen_upgrade.id):
+			chosen_upgrades.append({"upgrade": chosen_upgrade, "level": current_upgrades[chosen_upgrade.id]["quantity"]})
+		else:
+			chosen_upgrades.append({"upgrade": chosen_upgrade, "level": 1})
 	
 	return chosen_upgrades
 
@@ -65,6 +75,6 @@ func on_upgrade_selected(upgrade: AbilityUpgrade) -> void:
 func on_level_up(current_level: int) -> void:
 	var upgrade_screen_instance = upgrade_screen_scene.instantiate() as AbilityUpgradeScreen
 	add_child(upgrade_screen_instance)
-	var chosen_upgrades: Array[AbilityUpgrade] = pick_upgrades()
-	upgrade_screen_instance.set_ability_upgrades(chosen_upgrades as Array[AbilityUpgrade])
+	var chosen_upgrades: Array[Dictionary] = pick_upgrades()
+	upgrade_screen_instance.set_ability_upgrades(chosen_upgrades)
 	upgrade_screen_instance.upgrade_selected.connect(on_upgrade_selected)

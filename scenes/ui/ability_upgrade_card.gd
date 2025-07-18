@@ -27,9 +27,9 @@ func play_discard_animation() -> void:
 	animation_player.play("discard")
 
 
-func set_ability_upgrade(upgrade: AbilityUpgrade):
+func set_ability_upgrade(upgrade: AbilityUpgrade, level: int):
 	name_label.text = upgrade.name
-	description_label.text = upgrade.description
+	description_label.text = upgrade.level_modifiers.LEVEL_MODS[level]["description"]
 
 
 func select_card() -> void:

@@ -1,9 +1,18 @@
 extends Node
 
 @export var axe_ability_scene: PackedScene
+@export var level_modifiers: LevelModifier
 
-var base_damage = 10
-var additional_damage_percent = 1
+
+var id = "axe"
+var level: int = 1
+var base_damage: int = 10
+var additional_damage_percent: float = 1.0
+var axe_count: int = 1
+var axe_scale: float = 1.0
+var axe_speed: float = 1.0
+var axe_duration: float = 1.0
+var axe_cooldown: float = 1.0
 
 
 func _ready() -> void:
@@ -18,12 +27,14 @@ func on_timer_timeout() -> void:
 	var foreground = get_tree().get_first_node_in_group("foreground_layer") as Node2D
 	if foreground == null:
 		return
-	var axe_instance = axe_ability_scene.instantiate() as AxeAbility
-	foreground.add_child(axe_instance)
-	axe_instance.global_position = player.global_position
-	axe_instance.hitbox_component.damage = base_damage * additional_damage_percent
+	for i in level_modifiers.LEVEL_MODS[level][Modifiers.AMOUNT]:
+		var axe_instance = axe_ability_scene.instantiate() as AxeAbility
+		foreground.add_child(axe_instance)
+		axe_instance.global_position = player.global_position
+		axe_instance.hitbox_component.damage = base_damage * (1 + level_modifiers.LEVEL_MODS[level][Modifiers.DAMAGE])
+		axe_instance.scale_mod = axe_scale * (1 + level_modifiers.LEVEL_MODS[level][Modifiers.SIZE])
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
-	if upgrade.id == "axe_damage":
-		additional_damage_percent = 1 + (current_upgrades["axe_damage"]["quantity"] * 0.1) 
+	if upgrade.id == id:
+		level = current_upgrades[id]["quantity"]

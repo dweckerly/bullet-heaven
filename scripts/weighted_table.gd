@@ -3,6 +3,7 @@ class_name WeightedTable
 var items: Array[Dictionary] = []
 var weight_sum: int = 0
 
+
 func add_item(item: Resource, weight: int) -> void:
 	items.append({"item": item, "weight": weight})
 	weight_sum += weight
@@ -36,3 +37,16 @@ func pick_item(exclude: Array = []) -> Resource:
 		if chosen_weight <= iteration_sum:
 			return item["item"]
 	return null
+
+
+func update_weight(id: String, weight: int) -> void:
+	for item in items:
+		if item["item"].id == id:
+			item["weight"] = weight
+
+
+func get_weight(id: String) -> int:
+	for item in items:
+		if item["item"].id == id:
+			return item["weight"]
+	return 0
