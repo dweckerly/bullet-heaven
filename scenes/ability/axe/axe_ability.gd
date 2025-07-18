@@ -5,6 +5,7 @@ const MAX_RADIUS: float  = 100
 const MAX_ROTATIONS: int = 2
 
 @onready var hitbox_component = $HitboxComponent
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var base_rotation: Vector2 = Vector2.RIGHT
 
@@ -12,11 +13,12 @@ var scale_mod: float = 1.0
 
 func _ready() -> void:
 	base_rotation = Vector2.RIGHT.rotated(randf_range(0, TAU))
-	scale *= scale_mod
 	print(scale_mod)
-	print(scale)
 	var tween = create_tween()
+	tween.set_parallel()
 	tween.tween_method(tween_method, 0.0, 2.0, 3)
+	tween.tween_property(sprite_2d, "scale", Vector2(scale_mod, scale_mod), .1)
+	tween.chain()
 	tween.tween_callback(queue_free)
 	
 
