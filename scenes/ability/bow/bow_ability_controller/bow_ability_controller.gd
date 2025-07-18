@@ -8,7 +8,7 @@ extends Node
 
 var id = "bow"
 var level: int = 1
-var base_damage = 5
+var base_damage = 50
 #var knockback_strength = 100
 var additional_damage_percent = 1
 var last_movement_vector = Vector2.RIGHT
@@ -34,9 +34,10 @@ func on_timer_timeout() -> void:
 	if foreground == null:
 		return
 		
-	var adjusted_angle = (180 / (level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT] + 1)) - 90
+	var base_angle = (180 / (level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT] + 1)) - 90
 	for i in level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT]:
-		adjusted_angle += adjusted_angle * i
+		var adjusted_angle = base_angle + (180 / (level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT] + 1)) * i
+		print(adjusted_angle)
 		var bow_instance = bow_ability_scene.instantiate() as BowAbility
 		foreground.add_child(bow_instance)
 		bow_instance.global_position = player.global_position
@@ -57,6 +58,6 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 	if upgrade.id == id:
 		level = current_upgrades[id]["quantity"]
 		var percent_reduction = level_modifier.LEVEL_MODS[level][Modifiers.COOLDOWN]
-		timer.wait_time = max(base_wait_time - (base_wait_time - percent_reduction), 0.1)
+		timer.wait_time = max(base_wait_time - (base_wait_time * percent_reduction), 0.1)
 		timer.start()
 	

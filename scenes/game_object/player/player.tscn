@@ -129,6 +129,7 @@ max_speed = 50
 acceleration = 25.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_ss5pk")]
+max_health = 100.0
 
 [node name="Abilities" type="Node" parent="."]
 

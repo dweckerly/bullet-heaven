@@ -14,7 +14,7 @@ LEVEL_MODS = {
 "description": "Shoots an arrow in the direction the player is moving."
 },
 2: {
-"AMOUNT": 1,
+"AMOUNT": 2,
 "COOLDOWN": 0.25,
 "DAMAGE": 0.0,
 "SIZE": 0.0,
@@ -22,7 +22,7 @@ LEVEL_MODS = {
 "description": "Increases speed and reduces cooldown by 25%."
 },
 3: {
-"AMOUNT": 2,
+"AMOUNT": 3,
 "COOLDOWN": 0.25,
 "DAMAGE": 0.0,
 "SIZE": 0.0,
@@ -30,7 +30,7 @@ LEVEL_MODS = {
 "description": "Shoots an additional arrow."
 },
 4: {
-"AMOUNT": 2,
+"AMOUNT": 4,
 "COOLDOWN": 0.5,
 "DAMAGE": 0.0,
 "SIZE": 0.0,
@@ -38,7 +38,7 @@ LEVEL_MODS = {
 "description": "Increases speed and reduces cooldown by 50%."
 },
 5: {
-"AMOUNT": 2,
+"AMOUNT": 5,
 "COOLDOWN": 0.5,
 "DAMAGE": 0.0,
 "SIZE": 0.0,

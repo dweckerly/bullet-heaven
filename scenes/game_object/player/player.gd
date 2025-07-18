@@ -65,7 +65,8 @@ func update_health_display() -> void:
 
 func set_character(character: Character) -> void:
 	sprite_2d.texture = character.sprite
-	abilities.add_child(character.starting_ability.ability_controller_scene.instantiate())
+	#abilities.add_child(character.starting_ability.ability_controller_scene.instantiate())
+	GameEvents.emit_ability_upgrade_added(character.starting_ability, {})
 
 
 func on_body_entered(other_body: Node2D) -> void:
@@ -88,6 +89,12 @@ func on_health_changed() -> void:
 
 
 func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
+	var has_upgrade = current_upgrades.has(ability_upgrade.id)
+	if not has_upgrade:
+		current_upgrades[ability_upgrade.id] = {
+			"resource": ability_upgrade,
+			"quantity": 1
+		}
 	if ability_upgrade is Ability:
 		if current_upgrades[ability_upgrade.id]["quantity"] > 1:
 			pass
@@ -99,5 +106,4 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 
 
 func on_character_selected(character: Character) -> void:
-	print("on character selected")
 	set_character(character)

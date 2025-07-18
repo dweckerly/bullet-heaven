@@ -10,5 +10,4 @@ bow_ability_scene = ExtResource("2_s0d23")
 level_modifier = ExtResource("3_vdrre")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true

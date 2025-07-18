@@ -32,9 +32,10 @@ func on_timer_timeout() -> void:
 		foreground.add_child(axe_instance)
 		axe_instance.global_position = player.global_position
 		axe_instance.hitbox_component.damage = base_damage * (1 + level_modifiers.LEVEL_MODS[level][Modifiers.DAMAGE])
-		axe_instance.scale_mod = axe_scale * (1 + level_modifiers.LEVEL_MODS[level][Modifiers.SIZE])
-
+		axe_instance.scale_mod = axe_scale
+		
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if upgrade.id == id:
 		level = current_upgrades[id]["quantity"]
+		axe_scale = axe_scale * (1 + level_modifiers.LEVEL_MODS[level][Modifiers.SIZE])
