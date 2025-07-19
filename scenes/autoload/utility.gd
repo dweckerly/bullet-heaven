@@ -1,11 +1,11 @@
 extends Node
 
 
-func get_closest_enemies_within_range(source: Node2D, range: float) -> Array[Node]:
+func get_closest_enemies_within_range(source: Node2D, max_distance: float) -> Array[Node]:
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	enemies = enemies.filter(
 		func(enemy: Node2D): 
-			return enemy.global_position.distance_squared_to(source.global_position) < pow(range, 2)
+			return enemy.global_position.distance_squared_to(source.global_position) < pow(max_distance, 2)
 	)
 	if enemies.size() == 0:
 		return []
