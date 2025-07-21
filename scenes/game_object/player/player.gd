@@ -64,6 +64,8 @@ func update_health_display() -> void:
 
 
 func set_character(character: Character) -> void:
+	if character == null:
+		return
 	sprite_2d.texture = character.sprite
 	#abilities.add_child(character.starting_ability.ability_controller_scene.instantiate())
 	GameEvents.emit_ability_upgrade_added(character.starting_ability, {})
