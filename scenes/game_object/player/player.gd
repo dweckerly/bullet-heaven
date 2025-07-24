@@ -12,6 +12,7 @@ const ACCELERATION_SMOOTHING = 25
 @onready var visuals = $Visuals
 @onready var velocity_component: VelocityComponent = $VelocityComponent
 @onready var sprite_2d: Sprite2D = $Visuals/Sprite2D
+@onready var player_hurtbox: Area2D = $PlayerHurtbox
 
 var number_colliding_bodies: int = 0
 var base_speed: float = 0
@@ -21,8 +22,8 @@ var active_abilities: Array
 func _ready() -> void:
 	base_speed = velocity_component.max_speed
 	
-	$CollisionArea2D.body_entered.connect(on_body_entered)
-	$CollisionArea2D.body_exited.connect(on_body_exited)
+	player_hurtbox.body_entered.connect(on_body_entered)
+	player_hurtbox.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
 	health_component.health_changed.connect(on_health_changed)
 	update_health_display()
