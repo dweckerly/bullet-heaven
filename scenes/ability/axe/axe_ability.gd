@@ -13,7 +13,6 @@ var scale_mod: float = 1.0
 
 func _ready() -> void:
 	base_rotation = Vector2.RIGHT.rotated(randf_range(0, TAU))
-	print(scale_mod)
 	var tween = create_tween()
 	tween.set_parallel()
 	tween.tween_method(tween_method, 0.0, 2.0, 3)

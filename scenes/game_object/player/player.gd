@@ -27,8 +27,8 @@ func _ready() -> void:
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
 	health_component.health_changed.connect(on_health_changed)
 	update_health_display()
-	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	set_character(GameEvents.get_selected_character())
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
 func _process(delta) -> void:
@@ -68,8 +68,8 @@ func set_character(character: Character) -> void:
 	if character == null:
 		return
 	sprite_2d.texture = character.sprite
-	#abilities.add_child(character.starting_ability.ability_controller_scene.instantiate())
-	GameEvents.emit_ability_upgrade_added(character.starting_ability, {})
+	abilities.add_child(character.starting_ability.ability_controller_scene.instantiate())
+	#GameEvents.emit_ability_upgrade_added(character.starting_ability, {})
 
 
 func on_body_entered(other_body: Node2D) -> void:
@@ -89,15 +89,9 @@ func on_health_changed() -> void:
 	GameEvents.emit_player_damaged()
 	update_health_display()
 	$RandomStreamPlayer2DComponent.play_random()
-
+	
 
 func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
-	var has_upgrade = current_upgrades.has(ability_upgrade.id)
-	if not has_upgrade:
-		current_upgrades[ability_upgrade.id] = {
-			"resource": ability_upgrade,
-			"quantity": 1
-		}
 	if ability_upgrade is Ability:
 		if current_upgrades[ability_upgrade.id]["quantity"] > 1:
 			pass
@@ -106,7 +100,3 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + \
 		(base_speed * current_upgrades["player_speed"]["quantity"] * 0.25)
-
-
-func on_character_selected(character: Character) -> void:
-	set_character(character)

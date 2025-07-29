@@ -25,6 +25,9 @@ func _ready() -> void:
 	#upgrade_pool.add_item(player_speed, BASE_WEIGHT)
 	
 	xp_manager.level_up.connect(on_level_up)
+	var player_class = GameEvents.get_selected_character()
+	apply_upgrade(player_class.starting_ability)
+	
 
 
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade) -> void:
@@ -61,7 +64,7 @@ func pick_upgrades() -> Array[Dictionary]:
 		var chosen_upgrade = upgrade_pool.pick_item(exclude_upgrades)
 		exclude_upgrades.append(chosen_upgrade)
 		if current_upgrades.has(chosen_upgrade.id):
-			chosen_upgrades.append({"upgrade": chosen_upgrade, "level": current_upgrades[chosen_upgrade.id]["quantity"]})
+			chosen_upgrades.append({"upgrade": chosen_upgrade, "level": current_upgrades[chosen_upgrade.id]["quantity"] + 1})
 		else:
 			chosen_upgrades.append({"upgrade": chosen_upgrade, "level": 1})
 	

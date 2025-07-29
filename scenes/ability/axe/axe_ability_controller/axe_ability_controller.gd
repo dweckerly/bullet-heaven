@@ -39,4 +39,3 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 	if upgrade.id == id:
 		level = current_upgrades[id]["quantity"]
 		axe_scale = axe_scale * (1 + level_modifiers.LEVEL_MODS[level][Modifiers.SIZE])
-		print(axe_scale)
