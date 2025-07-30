@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdsoxt8tbeewa"]
+
+[ext_resource type="Script" uid="uid://cc65iixsbcuk1" path="res://scenes/ui/level_select_screen.gd" id="1_c166x"]
+[ext_resource type="Script" uid="uid://lcc2wdbrj2si" path="res://resources/levels/level.gd" id="2_0wd65"]
+[ext_resource type="Resource" uid="uid://cpgcdo2yry280" path="res://resources/levels/haunted_temple.tres" id="3_tqndh"]
+[ext_resource type="Resource" uid="uid://t4pc2h3f5gkn" path="res://resources/levels/frozen_labyrinth.tres" id="4_a0w5u"]
+[ext_resource type="PackedScene" uid="uid://c2pjn075ofppf" path="res://scenes/ui/sound_button.tscn" id="7_ek4dv"]
+
+[node name="LevelSelectScreen" type="CanvasLayer"]
+script = ExtResource("1_c166x")
+levels = Array[ExtResource("2_0wd65")]([ExtResource("3_tqndh"), ExtResource("4_a0w5u")])
+
+[node name="BackButton" parent="." instance=ExtResource("7_ek4dv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 66.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4

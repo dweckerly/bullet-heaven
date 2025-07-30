@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func on_character_selected(character: Character) -> void:
 	GameEvents.emit_character_selected(character)
-	ScreenTransition.transition_to_scene("res://scenes/main/main.tscn")
+	ScreenTransition.transition_to_scene("res://scenes/ui/level_select_screen.tscn")
 
 
 func on_back_pressed() -> void:
