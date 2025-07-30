@@ -12,6 +12,8 @@ var is_fading: bool = false
 
 func _ready() -> void:
 	current_track = "main_menu"
+	finished.connect(on_finished)
+	$Timer.timeout.connect(on_timer_timeout)
 
 
 func play_music(track_name: String, fade_in: bool = false, fade_duration: float = 1.0):
@@ -80,3 +82,9 @@ func set_volume(_volume_db: float):
 
 func get_current_track() -> String:
 	return current_track
+
+func on_finished() -> void:
+	$Timer.start()
+
+func on_timer_timeout() -> void:
+	play()

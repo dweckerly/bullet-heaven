@@ -6,6 +6,7 @@ signal selected
 @onready var character_sprite: TextureRect = %CharacterSprite
 @onready var name_label: Label = %NameLabel
 
+
 func _ready() -> void:
 	gui_input.connect(on_gui_input)
 
@@ -16,6 +17,7 @@ func set_character(character: Character) -> void:
 
 
 func select_card() -> void:
+	$RandomAudioStreamPlayerComponent.play_random()
 	selected.emit()
 
 

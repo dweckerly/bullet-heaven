@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct5bcykck4cvg"]
+[gd_scene load_steps=5 format=3 uid="uid://ct5bcykck4cvg"]
 
 [ext_resource type="Script" uid="uid://b0xh42c2bgpld" path="res://scenes/ui/character_card.gd" id="1_1b1wn"]
 [ext_resource type="Texture2D" uid="uid://bmxo6dh6j1pta" path="res://scenes/game_object/player/player.png" id="1_hb02x"]
+[ext_resource type="PackedScene" uid="uid://bwlxkrjswevpl" path="res://scenes/component/random_audio_stream_player_component.tscn" id="3_3vxox"]
+[ext_resource type="AudioStream" uid="uid://6sdpoj6hjvd8" path="res://assets/audio/sfx/UI Select.wav" id="4_3vxox"]
 
 [node name="CharacterCard" type="PanelContainer"]
 custom_minimum_size = Vector2(76, 76)
@@ -27,3 +29,6 @@ layout_mode = 2
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RandomAudioStreamPlayerComponent" parent="." instance=ExtResource("3_3vxox")]
+streams = Array[AudioStream]([ExtResource("4_3vxox")])

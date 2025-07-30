@@ -20,4 +20,4 @@ func on_level_selected(level: Level) -> void:
 
 
 func on_back_pressed() -> void:
-	ScreenTransition.transition_to_scene("res://scenes/ui/main_menu.tscn")
+	ScreenTransition.transition_to_scene("res://scenes/ui/character_select_screen.tscn")
