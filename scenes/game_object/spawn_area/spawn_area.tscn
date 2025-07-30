@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://hqabvv1tlhpl"]
+
+[ext_resource type="Script" uid="uid://gmv8wyism1sv" path="res://scenes/game_object/spawn_area/spawn_area.gd" id="1_puva7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8pn4w"]
+radius = 50.0
+
+[node name="SpawnArea" type="Area2D"]
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_puva7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8pn4w")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

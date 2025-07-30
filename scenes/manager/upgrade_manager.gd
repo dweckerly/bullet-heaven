@@ -26,7 +26,8 @@ func _ready() -> void:
 	
 	xp_manager.level_up.connect(on_level_up)
 	var player_class = GameEvents.get_selected_character()
-	apply_upgrade(player_class.starting_ability)
+	if player_class != null:
+		apply_upgrade(player_class.starting_ability)
 	
 
 
