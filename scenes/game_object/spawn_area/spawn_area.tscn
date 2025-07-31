@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://hqabvv1tlhpl"]
+[gd_scene load_steps=5 format=3 uid="uid://hqabvv1tlhpl"]
 
 [ext_resource type="Script" uid="uid://gmv8wyism1sv" path="res://scenes/game_object/spawn_area/spawn_area.gd" id="1_puva7"]
+[ext_resource type="PackedScene" uid="uid://bwlxkrjswevpl" path="res://scenes/component/random_audio_stream_player_component.tscn" id="2_es8u7"]
+[ext_resource type="AudioStream" uid="uid://bqhjryevu3h3h" path="res://assets/audio/sfx/Magic Attack 005.wav" id="3_02rew"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8pn4w"]
 radius = 50.0
@@ -12,6 +14,9 @@ script = ExtResource("1_puva7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8pn4w")
+
+[node name="RandomAudioStreamPlayerComponent" parent="." instance=ExtResource("2_es8u7")]
+streams = Array[AudioStream]([ExtResource("3_02rew")])
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

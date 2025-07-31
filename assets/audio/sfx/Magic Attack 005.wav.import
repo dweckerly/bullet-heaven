@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bqhjryevu3h3h"
+path="res://.godot/imported/Magic Attack 005.wav-a9edf101e1dbe947cde29ddf59561bbe.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Magic Attack 005.wav"
+dest_files=["res://.godot/imported/Magic Attack 005.wav-a9edf101e1dbe947cde29ddf59561bbe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

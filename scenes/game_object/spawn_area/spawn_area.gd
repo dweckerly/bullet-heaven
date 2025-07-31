@@ -10,8 +10,10 @@ var spawn_count: int = 0
 func _on_body_entered(body: Node2D) -> void:
 	if one_shot and spawn_count > 0:
 		return
+	$RandomAudioStreamPlayerComponent.play_random()
 	var enemy_instance = enemy.instantiate() as Node2D
 	entities_layer.call_deferred("add_child", enemy_instance)
 	#entities_layer.add_child(enemy_instance)
 	enemy_instance.global_position = global_position
 	spawn_count += 1
+	
