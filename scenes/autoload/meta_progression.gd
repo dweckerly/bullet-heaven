@@ -5,6 +5,20 @@ const SAVE_FILE_PATH = "user://game.save"
 var save_data: Dictionary = {
 	"gold": 0,
 	"meta_upgrade_currency": 0,
+	"characters": {
+		"archer": {
+			"locked": false
+		},
+		"brawler": {
+			"locked": true
+		},
+		"fighter": {
+			"locked": false
+		},
+		"orc": {
+			"locked": true
+		},
+	},
 	"meta_upgrades": {}
 }
 

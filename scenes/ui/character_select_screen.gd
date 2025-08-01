@@ -11,7 +11,7 @@ func _ready() -> void:
 	for character in characters:
 		var character_card_instance = character_card_scene.instantiate() as CharacterCard
 		grid_container.add_child(character_card_instance)
-		character_card_instance.set_character(character)
+		character_card_instance.set_character(character, MetaProgression.save_data["characters"][character.id]["locked"])
 		character_card_instance.selected.connect(on_character_selected.bind(character))
 
 
