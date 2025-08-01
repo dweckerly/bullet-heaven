@@ -15,8 +15,23 @@ var save_data: Dictionary = {
 		"fighter": {
 			"locked": false
 		},
+		"gnome": {
+			"locked": true
+		},
 		"orc": {
 			"locked": true
+		},
+		"druid": {
+			"locked": true
+		},
+		"priest": {
+			"locked": false
+		},
+		"valkyrie": {
+			"locked": true
+		},
+		"wizard": {
+			"locked": false
 		},
 	},
 	"meta_upgrades": {}

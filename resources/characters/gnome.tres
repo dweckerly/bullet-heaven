@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://bf0ohlvqopki1"]
+
+[ext_resource type="Script" uid="uid://bulbjwm4n0h7q" path="res://resources/characters/character.gd" id="1_kofk5"]
+[ext_resource type="Texture2D" uid="uid://dwook4yfj53ow" path="res://assets/characters/gnome.png" id="2_kofk5"]
+[ext_resource type="Resource" uid="uid://chvinn4ohv1oh" path="res://resources/upgrades/bow.tres" id="3_aptuq"]
+
+[resource]
+script = ExtResource("1_kofk5")
+id = "gnome"
+display_name = "Gnome"
+sprite = ExtResource("2_kofk5")
+starting_ability = ExtResource("3_aptuq")
