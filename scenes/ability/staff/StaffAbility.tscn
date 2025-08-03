@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkfxemb63r3y5"]
+[gd_scene load_steps=11 format=3 uid="uid://bkfxemb63r3y5"]
 
 [ext_resource type="Texture2D" uid="uid://3e6phxudolj4" path="res://assets/objects/staff_red.png" id="1_n8pw3"]
+[ext_resource type="Texture2D" uid="uid://dlh611xqljj5w" path="res://assets/misc/offset_pixel.png" id="2_7q47f"]
 
 [sub_resource type="Animation" id="Animation_n0eko"]
 length = 0.001
@@ -86,6 +87,42 @@ _data = {
 &"default": SubResource("Animation_7q47f")
 }
 
+[sub_resource type="Gradient" id="Gradient_n0eko"]
+colors = PackedColorArray(0.556863, 0.721569, 0.619608, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gtkw0"]
+gradient = SubResource("Gradient_n0eko")
+
+[sub_resource type="Curve" id="Curve_w8e37"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.146067), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0qq8x"]
+curve = SubResource("Curve_w8e37")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a1kir"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 600.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, -98, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = -2.23517e-06
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_0qq8x")
+color_ramp = SubResource("GradientTexture1D_gtkw0")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.1
+
 [node name="StaffAbility" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -96,3 +133,10 @@ autoplay = "default"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_n8pw3")
+
+[node name="Missile" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Missile"]
+amount = 50
+texture = ExtResource("2_7q47f")
+process_material = SubResource("ParticleProcessMaterial_a1kir")
