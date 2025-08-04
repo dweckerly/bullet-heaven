@@ -28,5 +28,6 @@ func on_animation_finished() -> void:
 		var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 		foreground_layer.add_child(missle_instance)
 		missle_instance.global_position = self.global_position
-		missle_instance.direction = (target_enemy.global_position - self.global_position)
+		var missle_direction = (target_enemy.global_position - self.global_position)
+		missle_instance.rotation = missle_direction.angle()
 	queue_free()

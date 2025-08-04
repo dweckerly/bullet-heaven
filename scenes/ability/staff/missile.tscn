@@ -47,7 +47,7 @@ radius = 6.0
 script = ExtResource("1_gyy8h")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
 autostart = true
 
