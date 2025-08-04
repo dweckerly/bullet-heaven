@@ -13,6 +13,7 @@ var axe = preload("res://resources/upgrades/axe.tres")
 var bow = preload("res://resources/upgrades/bow.tres")
 var sword = preload("res://resources/upgrades/sword.tres")
 var fist = preload("res://resources/upgrades/fist.tres")
+var staff = preload("res://resources/upgrades/staff.tres")
 
 #var player_speed = preload("res://resources/upgrades/player_speed.tres")
 
@@ -21,7 +22,7 @@ func _ready() -> void:
 	upgrade_pool.add_item(axe, BASE_WEIGHT)
 	upgrade_pool.add_item(bow, BASE_WEIGHT)
 	upgrade_pool.add_item(sword, BASE_WEIGHT)
-	upgrade_pool.add_item(fist, BASE_WEIGHT)
+	upgrade_pool.add_item(staff, BASE_WEIGHT)
 	#upgrade_pool.add_item(player_speed, BASE_WEIGHT)
 	
 	xp_manager.level_up.connect(on_level_up)

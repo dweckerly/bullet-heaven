@@ -21,9 +21,11 @@ func on_timer_timeout():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
 		return
-	var staff_instance = staff_ability.instantiate() as Node2D
+	var staff_instance = staff_ability.instantiate() as StaffAbility
 	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 	foreground_layer.add_child(staff_instance)
+	print(level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT])
+	staff_instance.set_missile_count(level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT])
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if upgrade.id == id:
