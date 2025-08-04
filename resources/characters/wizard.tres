@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bulbjwm4n0h7q" path="res://resources/characters/character.gd" id="1_6f0rn"]
 [ext_resource type="Texture2D" uid="uid://dftkbbohp2fyt" path="res://assets/characters/wizard.png" id="2_6f0rn"]
-[ext_resource type="Resource" uid="uid://chvinn4ohv1oh" path="res://resources/upgrades/bow.tres" id="3_yn26b"]
+[ext_resource type="Resource" uid="uid://ddgoijok8mgrw" path="res://resources/upgrades/staff.tres" id="3_6f0rn"]
 
 [resource]
 script = ExtResource("1_6f0rn")
 id = "wizard"
 display_name = "Wizard"
 sprite = ExtResource("2_6f0rn")
-starting_ability = ExtResource("3_yn26b")
+starting_ability = ExtResource("3_6f0rn")

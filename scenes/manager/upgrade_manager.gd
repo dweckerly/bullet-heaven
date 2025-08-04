@@ -34,7 +34,7 @@ func _ready() -> void:
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade) -> void:
 	var current_weight = upgrade_pool.get_weight(chosen_upgrade.id)
 	if current_weight != 0:
-		upgrade_pool.update_weight(chosen_upgrade.id, current_weight + BASE_WEIGHT / 5)
+		upgrade_pool.update_weight(chosen_upgrade.id, current_weight + BASE_WEIGHT / 5.0)
 
 
 func apply_upgrade(upgrade: AbilityUpgrade) -> void:
