@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://botyvr228pk41"]
+[gd_scene load_steps=14 format=3 uid="uid://botyvr228pk41"]
 
 [ext_resource type="Script" uid="uid://cidh1jv66brbh" path="res://scenes/ability/staff/missile.gd" id="1_gyy8h"]
 [ext_resource type="Texture2D" uid="uid://dlh611xqljj5w" path="res://assets/misc/offset_pixel.png" id="1_tbvcg"]
 [ext_resource type="Script" uid="uid://b728pa1palc7y" path="res://scenes/component/hitbox_component.gd" id="2_gyy8h"]
+[ext_resource type="Texture2D" uid="uid://dsf72xnjcd5iv" path="res://assets/misc/magic_effect.png" id="2_is8u3"]
 
 [sub_resource type="Gradient" id="Gradient_n0eko"]
 colors = PackedColorArray(0.556863, 0.721569, 0.619608, 1, 1, 1, 1, 1)
@@ -40,6 +41,22 @@ color_ramp = SubResource("GradientTexture1D_gtkw0")
 hue_variation_min = -2.23517e-08
 hue_variation_max = 0.1
 
+[sub_resource type="Curve" id="Curve_is8u3"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.252459, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xoju4"]
+curve = SubResource("Curve_is8u3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jx3rs"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+angle_min = -90.0
+angle_max = 90.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_xoju4")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_tyjup"]
 radius = 6.0
 
@@ -55,6 +72,11 @@ autostart = true
 amount = 100
 texture = ExtResource("1_tbvcg")
 process_material = SubResource("ParticleProcessMaterial_a1kir")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+amount = 5
+texture = ExtResource("2_is8u3")
+process_material = SubResource("ParticleProcessMaterial_jx3rs")
 
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 4

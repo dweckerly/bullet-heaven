@@ -106,7 +106,7 @@ autoplay = "walk"
 streams = Array[AudioStream]([ExtResource("3_3gvn3"), ExtResource("4_pwpjn"), ExtResource("5_0rvpj"), ExtResource("6_hb0ks"), ExtResource("7_bma2m")])
 
 [node name="HealthComponent" parent="." instance=ExtResource("8_q4wy3")]
-max_health = 100.0
+max_health = 1000.0
 
 [node name="XPDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("9_xsy45")]
 health_component = NodePath("../HealthComponent")

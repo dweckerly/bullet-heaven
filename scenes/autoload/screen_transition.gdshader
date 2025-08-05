@@ -13,4 +13,3 @@ void fragment() {
 		COLOR = transition_color;
 	}
 }
-
