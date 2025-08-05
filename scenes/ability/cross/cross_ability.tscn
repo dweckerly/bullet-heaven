@@ -1,0 +1,156 @@
+[gd_scene load_steps=12 format=3 uid="uid://bkn45s6w06mw1"]
+
+[ext_resource type="Script" uid="uid://ggm2v5fiy85a" path="res://scenes/ability/cross/cross_ability.gd" id="1_6i8cj"]
+[ext_resource type="Texture2D" uid="uid://c5id63uvggtx6" path="res://assets/objects/cross.png" id="2_xus74"]
+[ext_resource type="Texture2D" uid="uid://bakkycsxgc1i7" path="res://assets/objects/cross_mini.png" id="3_6i8cj"]
+[ext_resource type="PackedScene" uid="uid://db4hbpxr8eu7i" path="res://scenes/component/hitbox_component.tscn" id="5_bexer"]
+
+[sub_resource type="Animation" id="Animation_bexer"]
+resource_name = "default"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, 2), Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_tcrak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xhl6d"]
+_data = {
+&"RESET": SubResource("Animation_tcrak"),
+&"default": SubResource("Animation_bexer")
+}
+
+[sub_resource type="Curve" id="Curve_kg87t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0948275), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_phd8a"]
+curve = SubResource("Curve_kg87t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_572ls"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 1, 10)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 1.0
+emission_ring_cone_angle = 90.0
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_phd8a")
+color = Color(0.964706, 0.94902, 0.764706, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.15
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcrak"]
+radius = 20.0
+
+[node name="CrossAbility" type="Node2D"]
+script = ExtResource("1_6i8cj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xhl6d")
+}
+autoplay = "default"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xus74")
+
+[node name="PixelParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 500
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_572ls")
+
+[node name="CrossParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+texture = ExtResource("3_6i8cj")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_572ls")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("5_bexer")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_tcrak")

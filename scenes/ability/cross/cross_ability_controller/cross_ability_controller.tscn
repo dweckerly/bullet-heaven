@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ttagxw4c2wv2"]
+
+[ext_resource type="Script" uid="uid://b1josbocqdl6r" path="res://scenes/ability/cross/cross_ability_controller/cross_ability_controller.gd" id="1_oky6p"]
+[ext_resource type="PackedScene" uid="uid://bkn45s6w06mw1" path="res://scenes/ability/cross/cross_ability.tscn" id="2_umqm8"]
+[ext_resource type="Resource" uid="uid://dbq00sihdbhti" path="res://resources/upgrades/level_modifiers/cross_level_mods.tres" id="3_6dfde"]
+
+[node name="CrossAbilityController" type="Node"]
+script = ExtResource("1_oky6p")
+cross_ability_scene = ExtResource("2_umqm8")
+level_modifiers = ExtResource("3_6dfde")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

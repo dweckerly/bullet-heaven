@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="LevelModifier" load_steps=2 format=3 uid="uid://dbq00sihdbhti"]
+
+[ext_resource type="Script" uid="uid://co17iqivjxx5h" path="res://resources/upgrades/level_modifiers/level_modifier.gd" id="1_if87c"]
+
+[resource]
+script = ExtResource("1_if87c")
+LEVEL_MODS = {
+1: {
+"AMOUNT": 1,
+"COOLDOWN": 0.0,
+"DAMAGE": 0.0,
+"SIZE": 1.0,
+"SPEED": 0.0,
+"description": "Spawns a spinning axe that cleaves through enemies."
+},
+2: {
+"AMOUNT": 1,
+"COOLDOWN": 0.0,
+"DAMAGE": 0.25,
+"SIZE": 2.0,
+"SPEED": 0.0,
+"description": "Increases damage and size by 25%."
+},
+3: {
+"AMOUNT": 1,
+"COOLDOWN": 0.0,
+"DAMAGE": 0.5,
+"SIZE": 3.0,
+"SPEED": 0.0,
+"description": "Increases damage and size by 50%."
+},
+4: {
+"AMOUNT": 2,
+"COOLDOWN": 0.0,
+"DAMAGE": 0.5,
+"SIZE": 4.0,
+"SPEED": 0.0,
+"description": "Spawns an additional axe."
+},
+5: {
+"AMOUNT": 2,
+"COOLDOWN": 0,
+"DAMAGE": 1,
+"SIZE": 5,
+"SPEED": 0,
+"description": "Increases damage and size by 100%."
+}
+}
+metadata/_custom_type_script = "uid://co17iqivjxx5h"

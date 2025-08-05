@@ -11,15 +11,17 @@ var upgrade_pool: WeightedTable = WeightedTable.new()
 
 var axe = preload("res://resources/upgrades/axe.tres")
 var bow = preload("res://resources/upgrades/bow.tres")
-var sword = preload("res://resources/upgrades/sword.tres")
+var cross = preload("res://resources/upgrades/cross.tres")
 var fist = preload("res://resources/upgrades/fist.tres")
+var sword = preload("res://resources/upgrades/sword.tres")
 var staff = preload("res://resources/upgrades/staff.tres")
 
 #var player_speed = preload("res://resources/upgrades/player_speed.tres")
 
 
 func _ready() -> void:
-	upgrade_pool.add_item(axe, BASE_WEIGHT)
+	#upgrade_pool.add_item(axe, BASE_WEIGHT)
+	upgrade_pool.add_item(cross, BASE_WEIGHT)
 	upgrade_pool.add_item(bow, BASE_WEIGHT)
 	upgrade_pool.add_item(sword, BASE_WEIGHT)
 	upgrade_pool.add_item(staff, BASE_WEIGHT)
