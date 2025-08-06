@@ -10,3 +10,15 @@ id = "archer"
 display_name = "Archer"
 sprite = ExtResource("2_glq3l")
 starting_ability = ExtResource("3_weivu")
+modifiers = {
+"AMOUNT": 0,
+"COOLDOWN": 0,
+"DAMAGE": 0,
+"LIVES": 0,
+"MAX_HEALTH": 0,
+"MOVE_SPEED": 50,
+"REACH": 0,
+"SIZE": 0,
+"SPEED": 0,
+"XP_GAIN": 0
+}

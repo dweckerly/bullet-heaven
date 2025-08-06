@@ -16,12 +16,10 @@ const ACCELERATION_SMOOTHING = 25
 
 var number_colliding_bodies: int = 0
 var base_speed: float = 0
-
 var active_abilities: Array
+var character: Character
 
 func _ready() -> void:
-	base_speed = velocity_component.max_speed
-	
 	player_hurtbox.body_entered.connect(on_body_entered)
 	player_hurtbox.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
@@ -64,11 +62,16 @@ func update_health_display() -> void:
 	health_bar.value = health_component.get_health_percent()
 
 
-func set_character(character: Character) -> void:
-	if character == null:
+func set_character(_character: Character) -> void:
+	if _character == null:
 		return
-	sprite_2d.texture = character.sprite
-	abilities.add_child(character.starting_ability.ability_controller_scene.instantiate())
+	character = _character
+	sprite_2d.texture = _character.sprite
+	abilities.add_child(_character.starting_ability.ability_controller_scene.instantiate())
+	base_speed = velocity_component.max_speed * (1 + (character.modifiers[Modifiers.MOVE_SPEED] / 100))
+	velocity_component.max_speed = base_speed
+	print(velocity_component.max_speed)
+	print(base_speed)
 	#GameEvents.emit_ability_upgrade_added(character.starting_ability, {})
 
 
