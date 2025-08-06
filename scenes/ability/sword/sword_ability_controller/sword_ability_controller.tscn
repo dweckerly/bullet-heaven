@@ -7,7 +7,7 @@
 [node name="SwordAbilityController" type="Node"]
 script = ExtResource("1_38o0k")
 sword_ability = ExtResource("2_fk2c1")
-level_modifier = ExtResource("3_ia06v")
+level_modifiers = ExtResource("3_ia06v")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

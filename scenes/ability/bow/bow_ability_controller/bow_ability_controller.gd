@@ -41,7 +41,9 @@ func on_timer_timeout() -> void:
 		foreground.add_child(bow_instance)
 		bow_instance.global_position = player.global_position
 		bow_instance.rotation = direction + deg_to_rad(adjusted_angle)
-		bow_instance.hitbox_component.damage = base_damage * additional_damage_percent
+		bow_instance.hitbox_component.damage = base_damage * \
+			(1 + level_modifier.LEVEL_MODS[level][Modifiers.DAMAGE]\
+				+ player.character.modifiers[Modifiers.DAMAGE]['value'])
 		bow_instance.speed = bow_instance.speed * (1 + level_modifier.LEVEL_MODS[level][Modifiers.SPEED])
 		#bow_instance.hitbox_component.knockback = knockback_strength
 

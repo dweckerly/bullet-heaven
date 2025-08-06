@@ -68,7 +68,7 @@ func set_character(_character: Character) -> void:
 	character = _character
 	sprite_2d.texture = _character.sprite
 	abilities.add_child(_character.starting_ability.ability_controller_scene.instantiate())
-	base_speed = velocity_component.max_speed * (1 + (character.modifiers[Modifiers.MOVE_SPEED] / 100))
+	base_speed = velocity_component.max_speed * (1 + character.modifiers[Modifiers.MOVE_SPEED]['value'])
 	velocity_component.max_speed = base_speed
 	print(velocity_component.max_speed)
 	print(base_speed)

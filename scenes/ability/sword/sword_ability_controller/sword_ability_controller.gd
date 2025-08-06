@@ -3,7 +3,7 @@ extends Node
 const MAX_RANGE: float = 100.0
 
 @export var sword_ability: PackedScene
-@export var level_modifier: LevelModifier
+@export var level_modifiers: LevelModifier
 
 @onready var timer: Timer = $Timer
 
@@ -26,12 +26,14 @@ func on_timer_timeout():
 	var target_enemies = Utility.get_closest_enemies_within_range(player, MAX_RANGE)
 	var enemy_count = target_enemies.size()
 	if target_enemies.size() > 0:
-		for i in level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT]:
+		for i in level_modifiers.LEVEL_MODS[level][Modifiers.AMOUNT]:
 			var target_enemy = target_enemies[i % enemy_count]
 			var sword_instance = sword_ability.instantiate() as SwordAbility
 			var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 			foreground_layer.add_child(sword_instance)
-			sword_instance.hitbox_component.damage = base_damage * (1 + level_modifier.LEVEL_MODS[level][Modifiers.DAMAGE])
+			sword_instance.hitbox_component.damage = base_damage * \
+				(1 + level_modifiers.LEVEL_MODS[level][Modifiers.DAMAGE]\
+				+ player.character.modifiers[Modifiers.DAMAGE]['value'])
 			var sword_spawn_position = player.global_position
 			if target_enemy != null:
 					sword_spawn_position = target_enemy.global_position
@@ -44,7 +46,7 @@ func on_timer_timeout():
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if upgrade.id == id:
 		level = current_upgrades[id]["quantity"]
-		var percent_reduction = level_modifier.LEVEL_MODS[level][Modifiers.COOLDOWN]
+		var percent_reduction = level_modifiers.LEVEL_MODS[level][Modifiers.COOLDOWN]
 		timer.wait_time = max(base_wait_time * (1 - percent_reduction), 0.1)
 		timer.start()
 	#elif upgrade.id == "sword_damage":

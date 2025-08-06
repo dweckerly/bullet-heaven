@@ -5,7 +5,7 @@ class_name StaffAbility
 
 var MAX_RANGE: int = 400
 var player
-
+var damage: float = 10
 var missiles_count: int = 1
 
 func _ready() -> void:
@@ -20,6 +20,9 @@ func _process(delta: float) -> void:
 
 func set_missile_count(amount: int) -> void:
 	missiles_count = amount
+
+func set_missle_damage(amount: float) -> void:
+	damage = amount
 
 func on_animation_finished() -> void:
 	if player == null:
@@ -37,4 +40,5 @@ func on_animation_finished() -> void:
 			missle_instance.global_position = self.global_position
 			var missle_direction = (target_enemy.global_position - self.global_position)
 			missle_instance.rotation = missle_direction.angle()
+			missle_instance.hitbox_component.damage = damage
 	queue_free()

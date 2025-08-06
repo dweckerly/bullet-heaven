@@ -13,52 +13,52 @@ starting_ability = ExtResource("3_6f0rn")
 modifiers = {
 "AMOUNT": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "COOLDOWN": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "DAMAGE": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "LIVES": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "MAX_HEALTH": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": -0.2
 },
 "MOVE_SPEED": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "REACH": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "SIZE": {
-"level_up": false,
-"max": 100,
-"value": 0
+"level_up": true,
+"max": 1.0,
+"value": 0.05
 },
 "SPEED": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "XP_GAIN": {
-"level_up": false,
-"max": 100,
-"value": 50
+"level_up": true,
+"max": 1.0,
+"value": 0.1
 }
 }

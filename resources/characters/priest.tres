@@ -13,52 +13,50 @@ starting_ability = ExtResource("3_oy70c")
 modifiers = {
 "AMOUNT": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "COOLDOWN": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "DAMAGE": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "LIVES": {
-"level_up": false,
-"max": 100,
-"value": 0
+"value": 1
 },
 "MAX_HEALTH": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "MOVE_SPEED": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "REACH": {
-"level_up": true,
-"max": 100,
-"value": 10
+"level_up": false,
+"max": 1.0,
+"value": 0.0
 },
 "SIZE": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "SPEED": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 },
 "XP_GAIN": {
 "level_up": false,
-"max": 100,
-"value": 0
+"max": 1.0,
+"value": 0.0
 }
 }

@@ -31,7 +31,9 @@ func on_timer_timeout() -> void:
 	#cross_instance.scale_mod = axe_scale
 	foreground.add_child(cross_instance)
 	cross_instance.global_position = player.global_position
-	cross_instance.hitbox_component.damage = base_damage * (1 + level_modifiers.LEVEL_MODS[level][Modifiers.DAMAGE])
+	cross_instance.hitbox_component.damage = base_damage * \
+		(1 + level_modifiers.LEVEL_MODS[level][Modifiers.DAMAGE] \
+		+ player.character.modifiers[Modifiers.DAMAGE]['value'])
 		
 		
 

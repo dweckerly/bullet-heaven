@@ -7,7 +7,7 @@
 [node name="StaffAbilityController" type="Node"]
 script = ExtResource("1_o0t1q")
 staff_ability = ExtResource("2_1g1hr")
-level_modifier = ExtResource("3_qufim")
+level_modifiers = ExtResource("3_qufim")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5
