@@ -24,7 +24,7 @@ modifiers = {
 "DAMAGE": {
 "level_up": false,
 "max": 1.0,
-"value": 0.0
+"value": -0.2
 },
 "LIVES": {
 "value": 1
