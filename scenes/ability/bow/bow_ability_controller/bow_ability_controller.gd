@@ -8,7 +8,7 @@ extends Node
 
 var id = "bow"
 var level: int = 1
-var base_damage = 50
+var base_damage = 10
 #var knockback_strength = 100
 var additional_damage_percent = 1
 var last_movement_vector = Vector2.RIGHT

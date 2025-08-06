@@ -10,5 +10,5 @@ cross_ability_scene = ExtResource("2_umqm8")
 level_modifiers = ExtResource("3_6dfde")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 autostart = true

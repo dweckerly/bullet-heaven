@@ -6,7 +6,7 @@ extends Node
 
 var id = "cross"
 var level: int = 1
-var base_damage: int = 10
+var base_damage: int = 20
 var additional_damage_percent: float = 1.0
 var axe_count: int = 1
 var axe_scale: float = 1.0

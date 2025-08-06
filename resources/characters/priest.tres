@@ -10,3 +10,55 @@ id = "priest"
 display_name = "Priest"
 sprite = ExtResource("2_oy70c")
 starting_ability = ExtResource("3_oy70c")
+modifiers = {
+"AMOUNT": {
+"level_up": false,
+"max": 100,
+"value": 0
+},
+"COOLDOWN": {
+"level_up": false,
+"max": 100,
+"value": 0
+},
+"DAMAGE": {
+"level_up": false,
+"max": 100,
+"value": 0
+},
+"LIVES": {
+"level_up": false,
+"max": 100,
+"value": 0
+},
+"MAX_HEALTH": {
+"level_up": false,
+"max": 100,
+"value": 0
+},
+"MOVE_SPEED": {
+"level_up": false,
+"max": 100,
+"value": 0
+},
+"REACH": {
+"level_up": true,
+"max": 100,
+"value": 10
+},
+"SIZE": {
+"level_up": false,
+"max": 100,
+"value": 0
+},
+"SPEED": {
+"level_up": false,
+"max": 100,
+"value": 0
+},
+"XP_GAIN": {
+"level_up": false,
+"max": 100,
+"value": 0
+}
+}

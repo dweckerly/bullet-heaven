@@ -10,5 +10,5 @@ sword_ability = ExtResource("2_fk2c1")
 level_modifier = ExtResource("3_ia06v")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 3.0
 autostart = true

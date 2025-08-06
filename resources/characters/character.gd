@@ -6,14 +6,14 @@ class_name Character
 @export var sprite: Texture2D
 @export var starting_ability: Ability
 @export var modifiers: Dictionary = {
-	Modifiers.AMOUNT: 0,
-	Modifiers.COOLDOWN: 0,
-	Modifiers.DAMAGE: 0,
-	Modifiers.LIVES: 0,
-	Modifiers.MAX_HEALTH: 0,
-	Modifiers.MOVE_SPEED: 0,
-	Modifiers.REACH: 0,
-	Modifiers.SIZE: 0,
-	Modifiers.SPEED: 0,
-	Modifiers.XP_GAIN: 0
+	Modifiers.AMOUNT: { 'value': 0, 'level_up': false, 'max': 100},
+	Modifiers.COOLDOWN: { 'value': 0, 'level_up': false, 'max': 100},
+	Modifiers.DAMAGE: { 'value': 0, 'level_up': false, 'max': 100},
+	Modifiers.LIVES: { 'value': 0, 'level_up': false, 'max': 100},
+	Modifiers.MAX_HEALTH: { 'value': 0, 'level_up': false, 'max': 100},
+	Modifiers.MOVE_SPEED: { 'value': 0, 'level_up': false, 'max': 100},
+	Modifiers.REACH: { 'value': 0, 'level_up': false, 'max': 100},
+	Modifiers.SIZE: { 'value': 0, 'level_up': false, 'max': 100},
+	Modifiers.SPEED: { 'value': 0, 'level_up': false, 'max': 100},
+	Modifiers.XP_GAIN: { 'value': 0, 'level_up': false, 'max': 100},
 }

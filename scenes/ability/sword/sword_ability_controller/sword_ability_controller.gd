@@ -9,7 +9,7 @@ const MAX_RANGE: float = 100.0
 
 var id: String = "sword"
 var level: int  = 1
-var base_damage: float = 5
+var base_damage: float = 10
 var additional_damage_percent: float = 1.0
 var base_wait_time: float
 
@@ -32,12 +32,14 @@ func on_timer_timeout():
 			var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 			foreground_layer.add_child(sword_instance)
 			sword_instance.hitbox_component.damage = base_damage * (1 + level_modifier.LEVEL_MODS[level][Modifiers.DAMAGE])
-			
-			sword_instance.global_position = target_enemy.global_position
+			var sword_spawn_position = player.global_position
+			if target_enemy != null:
+					sword_spawn_position = target_enemy.global_position
+			sword_instance.global_position = sword_spawn_position
 			sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4
-			
-			var enemy_direction = target_enemy.global_position - sword_instance.global_position
+			var enemy_direction = sword_spawn_position - player.global_position
 			sword_instance.rotation = enemy_direction.angle()
+			await get_tree().create_timer(0.3).timeout
 	
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if upgrade.id == id:
