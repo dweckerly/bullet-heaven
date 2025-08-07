@@ -18,8 +18,9 @@ func on_area_entered(other_area: Area2D) -> void:
 		return
 	
 	var hitbox_component = other_area as HitboxComponent
+	if velocity_component != null:
+		velocity_component.receive_knockback(hitbox_component.knockback)
 	health_component.damage(hitbox_component.damage)
-	velocity_component.receive_knockback(hitbox_component.knockback)
 	
 	var floating_text = floating_text_scene.instantiate() as FloatingText
 	if floating_text == null: 
