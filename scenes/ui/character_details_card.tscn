@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://coahkalpaoj0m"]
+[gd_scene load_steps=5 format=3 uid="uid://coahkalpaoj0m"]
 
 [ext_resource type="Script" uid="uid://bikv0w2psgmuk" path="res://scenes/ui/character_details_card.gd" id="1_hxp4k"]
 [ext_resource type="Theme" uid="uid://b2e0alg3bww78" path="res://resources/theme/theme.tres" id="1_k484q"]
 [ext_resource type="Texture2D" uid="uid://bdf3pns5inx7n" path="res://assets/objects/sword.png" id="2_hxp4k"]
+[ext_resource type="PackedScene" uid="uid://c2pjn075ofppf" path="res://scenes/ui/sound_button.tscn" id="4_cd7w4"]
 
 [node name="CharacterDetailsCard" type="CanvasLayer"]
 layer = 2
@@ -36,9 +37,15 @@ theme = ExtResource("1_k484q")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -17.0
+offset_right = 145.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
@@ -73,3 +80,7 @@ text = "Character Name"
 unique_name_in_owner = true
 layout_mode = 2
 text = "+50% speed or w/e"
+
+[node name="SoundButton" parent="Panel/HBoxContainer" instance=ExtResource("4_cd7w4")]
+layout_mode = 2
+text = "Select"
