@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://ddgoijok8mgrw"]
+[gd_resource type="Resource" script_class="Ability" load_steps=5 format=3 uid="uid://ddgoijok8mgrw"]
 
 [ext_resource type="PackedScene" uid="uid://dxhx5kck4wgk7" path="res://scenes/ability/staff/staff_ability_controller/staff_ability_controller.tscn" id="1_8v3cq"]
 [ext_resource type="Resource" uid="uid://blg40vhc00cpy" path="res://resources/upgrades/level_modifiers/staff_level_mods.tres" id="2_4rkc0"]
+[ext_resource type="Texture2D" uid="uid://3e6phxudolj4" path="res://assets/objects/staff_red.png" id="2_l1hkj"]
 [ext_resource type="Script" uid="uid://dub5boqo31n4u" path="res://resources/upgrades/ability.gd" id="3_l1hkj"]
 
 [resource]
 script = ExtResource("3_l1hkj")
 ability_controller_scene = ExtResource("1_8v3cq")
+image = ExtResource("2_l1hkj")
 id = "staff"
 max_quantity = 5
 name = "Staff"

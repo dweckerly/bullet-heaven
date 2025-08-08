@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://mws6nlra16vo"]
+[gd_resource type="Resource" script_class="Ability" load_steps=5 format=3 uid="uid://mws6nlra16vo"]
 
 [ext_resource type="PackedScene" uid="uid://ttagxw4c2wv2" path="res://scenes/ability/cross/cross_ability_controller/cross_ability_controller.tscn" id="1_1lgdy"]
+[ext_resource type="Texture2D" uid="uid://c5id63uvggtx6" path="res://assets/objects/cross.png" id="2_eg5u0"]
 [ext_resource type="Resource" uid="uid://dbq00sihdbhti" path="res://resources/upgrades/level_modifiers/cross_level_mods.tres" id="2_yvyl4"]
 [ext_resource type="Script" uid="uid://dub5boqo31n4u" path="res://resources/upgrades/ability.gd" id="3_eg5u0"]
 
 [resource]
 script = ExtResource("3_eg5u0")
 ability_controller_scene = ExtResource("1_1lgdy")
+image = ExtResource("2_eg5u0")
 id = "cross"
 max_quantity = 5
 name = "Cross"

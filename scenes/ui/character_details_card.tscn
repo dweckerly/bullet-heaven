@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://coahkalpaoj0m"]
+
+[ext_resource type="Script" uid="uid://bikv0w2psgmuk" path="res://scenes/ui/character_details_card.gd" id="1_hxp4k"]
+[ext_resource type="Theme" uid="uid://b2e0alg3bww78" path="res://resources/theme/theme.tres" id="1_k484q"]
+[ext_resource type="Texture2D" uid="uid://bdf3pns5inx7n" path="res://assets/objects/sword.png" id="2_hxp4k"]
+
+[node name="CharacterDetailsCard" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_hxp4k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(256, 64)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_k484q")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="WeaponContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="WeaponSprite" type="Sprite2D" parent="Panel/HBoxContainer/WeaponContainer"]
+unique_name_in_owner = true
+position = Vector2(44, 17)
+texture = ExtResource("2_hxp4k")
+
+[node name="WeaponName" type="Label" parent="Panel/HBoxContainer/WeaponContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Weapon Name"
+
+[node name="DetailsContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="CharacterName" type="Label" parent="Panel/HBoxContainer/DetailsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Character Name"
+
+[node name="Modifiers" type="Label" parent="Panel/HBoxContainer/DetailsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+50% speed or w/e"
