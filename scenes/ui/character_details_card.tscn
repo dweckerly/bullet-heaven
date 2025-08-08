@@ -10,77 +10,81 @@ layer = 2
 script = ExtResource("1_hxp4k")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(256, 64)
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="Panel" type="Panel" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -64.0
-offset_right = 128.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Panel" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
 theme = ExtResource("1_k484q")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = -17.0
-offset_right = 145.0
-offset_bottom = 17.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 16
 alignment = 1
 
-[node name="WeaponContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="WeaponContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
 alignment = 1
 
-[node name="WeaponSprite" type="Sprite2D" parent="Panel/HBoxContainer/WeaponContainer"]
+[node name="WeaponSprite" type="TextureRect" parent="MarginContainer/Panel/HBoxContainer/MarginContainer/WeaponContainer"]
 unique_name_in_owner = true
-position = Vector2(44, 17)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 3
 texture = ExtResource("2_hxp4k")
 
-[node name="WeaponName" type="Label" parent="Panel/HBoxContainer/WeaponContainer"]
+[node name="WeaponName" type="Label" parent="MarginContainer/Panel/HBoxContainer/MarginContainer/WeaponContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 6
 text = "Weapon Name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="DetailsContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+[node name="DetailsContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="CharacterName" type="Label" parent="Panel/HBoxContainer/DetailsContainer"]
+[node name="CharacterName" type="Label" parent="MarginContainer/Panel/HBoxContainer/DetailsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Character Name"
 
-[node name="Modifiers" type="Label" parent="Panel/HBoxContainer/DetailsContainer"]
+[node name="Modifiers" type="Label" parent="MarginContainer/Panel/HBoxContainer/DetailsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "+50% speed or w/e"
 
-[node name="SoundButton" parent="Panel/HBoxContainer" instance=ExtResource("4_cd7w4")]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_right = 16
+
+[node name="SelectBtn" parent="MarginContainer/Panel/HBoxContainer/MarginContainer2" instance=ExtResource("4_cd7w4")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
 text = "Select"

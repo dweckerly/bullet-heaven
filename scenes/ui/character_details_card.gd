@@ -1,11 +1,15 @@
 extends CanvasLayer
 class_name CharacterDetailsCard
 
-@onready var weapon_sprite: Sprite2D = %WeaponSprite
+@onready var weapon_sprite: TextureRect = %WeaponSprite
 @onready var weapon_name: Label = %WeaponName
 @onready var character_name: Label = %CharacterName
 @onready var modifiers: Label = %Modifiers
+@onready var select_btn: Button = %SelectBtn
 
+
+func _ready() -> void:
+	select_btn.pressed.connect(on_select_pressed)
 
 func set_character_details(character: Character) -> void:
 	weapon_sprite.texture = character.starting_ability.image
@@ -127,3 +131,7 @@ func create_modifier_string(modifiers: Dictionary) -> String:
 				return_string += percent + " reduced xp gain\n"
 	
 	return return_string.left(return_string.length() - 1)
+
+
+func on_select_pressed() -> void:
+	ScreenTransition.transition_to_scene("res://scenes/ui/level_select_screen.tscn")

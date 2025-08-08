@@ -22,7 +22,6 @@ func on_character_selected(character: Character) -> void:
 	GameEvents.emit_character_selected(character)
 	character_details_card.set_character_details(character)
 	character_details_card.visible = true
-	#ScreenTransition.transition_to_scene("res://scenes/ui/level_select_screen.tscn")
 
 
 func on_back_pressed() -> void:
