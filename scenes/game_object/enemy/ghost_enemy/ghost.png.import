@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwjfnwcf7puvp"
-path="res://.godot/imported/ghost.png-8f9b8365dbf794620aebda27d078c340.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://da7y1qx6h0vls"
+valid=false
 
 [deps]
 
 source_file="res://scenes/game_object/enemy/ghost_enemy/ghost.png"
-dest_files=["res://.godot/imported/ghost.png-8f9b8365dbf794620aebda27d078c340.ctex"]
 
 [params]
 

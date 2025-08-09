@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://bwlr7d6wtndt0"]
 
-[ext_resource type="Texture2D" uid="uid://cfl2xi52flvjp" path="res://scenes/game_object/enemy/basic_enemy/bat.png" id="1_f165l"]
+[ext_resource type="Texture2D" uid="uid://cfl2xi52flvjp" path="res://assets/enemies/bat.png" id="1_f165l"]
 [ext_resource type="Script" uid="uid://dd8lw75m8uis" path="res://scenes/component/death_componnent.gd" id="1_j1ftf"]
 [ext_resource type="PackedScene" uid="uid://c106e8kkata6g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="3_mfjho"]
 [ext_resource type="AudioStream" uid="uid://dwcgprvvwvddh" path="res://assets/audio/sfx/Enemy hit 001.wav" id="4_2ymil"]

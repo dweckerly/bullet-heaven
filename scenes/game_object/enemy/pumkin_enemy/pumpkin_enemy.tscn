@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c12puifh87qrt" path="res://scenes/component/hit_flash_component.tscn" id="11_vagmi"]
 [ext_resource type="Shader" uid="uid://dr0wtfak85caa" path="res://scenes/component/hit_flash_component.gdshader" id="12_pflps"]
 [ext_resource type="PackedScene" uid="uid://bwlr7d6wtndt0" path="res://scenes/component/death_componnent.tscn" id="13_sn26y"]
-[ext_resource type="Texture2D" uid="uid://bpru0d6c6kwhf" path="res://assets/characters/pumpkin.png" id="14_sbtei"]
+[ext_resource type="Texture2D" uid="uid://bpru0d6c6kwhf" path="res://assets/enemies/pumpkin.png" id="14_sbtei"]
 [ext_resource type="PackedScene" uid="uid://cd1j348s6rxh8" path="res://scenes/component/hurtbox_component.tscn" id="14_y81lx"]
 
 [sub_resource type="Animation" id="Animation_qku51"]
