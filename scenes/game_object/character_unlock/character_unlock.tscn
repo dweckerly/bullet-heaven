@@ -1,0 +1,130 @@
+[gd_scene load_steps=12 format=3 uid="uid://0fxofjoefxb4"]
+
+[ext_resource type="Texture2D" uid="uid://281l704rfda7" path="res://assets/objects/heart_empty.png" id="1_i4ygj"]
+[ext_resource type="Texture2D" uid="uid://ba43xtx56mt8k" path="res://assets/misc/blood.png" id="2_fsjon"]
+
+[sub_resource type="Animation" id="Animation_agbn8"]
+resource_name = "default"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333, 1.36667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 8), Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.766667, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uo5l6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -2.10685)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uo6wc"]
+_data = {
+&"RESET": SubResource("Animation_uo5l6"),
+&"default": SubResource("Animation_agbn8")
+}
+
+[sub_resource type="Gradient" id="Gradient_a18ye"]
+offsets = PackedFloat32Array(0.00350877, 1)
+colors = PackedColorArray(0.337255, 0.129412, 0.164706, 1, 0.905882, 0.607843, 0.486275, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bwiks"]
+gradient = SubResource("Gradient_a18ye")
+width = 16
+
+[sub_resource type="Curve" id="Curve_h6txd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.659164, 0.604275), -1.07822, -1.07822, 0, 0, Vector2(1, 0.216969), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rxrht"]
+curve = SubResource("Curve_h6txd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ftfqx"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 10.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, 100, 0)
+radial_accel_min = -100.0
+radial_accel_max = 100.0
+scale_min = 0.25
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_rxrht")
+color_ramp = SubResource("GradientTexture1D_bwiks")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enft1"]
+radius = 15.0
+
+[node name="CharacterUnlock" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uo6wc")
+}
+autoplay = "default"
+
+[node name="Visuals" type="Node2D" parent="."]
+position = Vector2(0, -2.10685)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+z_index = 1
+texture = ExtResource("1_i4ygj")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Visuals"]
+position = Vector2(0, -0.653479)
+amount = 300
+texture = ExtResource("2_fsjon")
+process_material = SubResource("ParticleProcessMaterial_ftfqx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_enft1")
