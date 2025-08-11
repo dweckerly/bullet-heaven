@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://pk4wlr7bnjql"]
+
+[ext_resource type="Script" uid="uid://c6m0upj2hp8wv" path="res://scenes/ability/root/root_ability_controller/root_ability_controller.gd" id="1_tf3cs"]
+[ext_resource type="PackedScene" uid="uid://biemlbv8hjhom" path="res://scenes/ability/root/root_ability.tscn" id="2_in10e"]
+[ext_resource type="Resource" uid="uid://b1u04hn2d87he" path="res://resources/upgrades/level_modifiers/root_level_modifier.tres" id="3_jhtfp"]
+
+[node name="RootAbilityController" type="Node"]
+script = ExtResource("1_tf3cs")
+root_ability = ExtResource("2_in10e")
+level_modifiers = ExtResource("3_jhtfp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

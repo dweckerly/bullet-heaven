@@ -2,11 +2,61 @@
 
 [ext_resource type="Script" uid="uid://bulbjwm4n0h7q" path="res://resources/characters/character.gd" id="1_8ty3s"]
 [ext_resource type="Texture2D" uid="uid://bx5j3aqo1gffc" path="res://assets/characters/druid.png" id="2_8ty3s"]
-[ext_resource type="Resource" uid="uid://chvinn4ohv1oh" path="res://resources/upgrades/bow.tres" id="3_evvgy"]
+[ext_resource type="Resource" uid="uid://dflvxlbxowxlf" path="res://resources/upgrades/root.tres" id="3_8ty3s"]
 
 [resource]
 script = ExtResource("1_8ty3s")
 id = "druid"
 display_name = "Druid"
 sprite = ExtResource("2_8ty3s")
-starting_ability = ExtResource("3_evvgy")
+starting_ability = ExtResource("3_8ty3s")
+modifiers = {
+"AMOUNT": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"COOLDOWN": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"DAMAGE": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"LIVES": {
+"value": 0
+},
+"MAX_HEALTH": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"MOVE_SPEED": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"REACH": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"SIZE": {
+"level_up": false,
+"max": 1.0,
+"value": 0.5
+},
+"SPEED": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"XP_GAIN": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+}
+}

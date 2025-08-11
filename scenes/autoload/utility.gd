@@ -1,6 +1,13 @@
 extends Node
 
 
+func get_random_point_in_radius(center: Vector2, max_radius: float) -> Vector2:
+	var angle = randf() * 2 * PI
+	var distance = sqrt(randf()) * max_radius
+	var offset = Vector2(cos(angle) * distance, sin(angle) * distance)
+	return center + offset
+
+
 func get_closest_enemies_within_range(source: Node2D, max_distance: float) -> Array[Node]:
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	enemies = enemies.filter(
