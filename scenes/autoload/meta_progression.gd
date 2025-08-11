@@ -64,6 +64,10 @@ func add_meta_upgrade(upgrade: MetaUpgrade) -> void:
 	save()
 
 
+func unlock_character(id: String) -> void:
+	save_data["characters"][id]["locked"] = false
+	save()
+
 func get_upgrade_count(upgrade_id: String) -> int:
 	if MetaProgression.save_data["meta_upgrades"].has(upgrade_id):
 		return MetaProgression.save_data["meta_upgrades"][upgrade_id]["quantity"]

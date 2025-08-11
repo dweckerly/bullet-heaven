@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://0fxofjoefxb4"]
+[gd_scene load_steps=13 format=3 uid="uid://0fxofjoefxb4"]
 
+[ext_resource type="Script" uid="uid://ygy8wdlt2gji" path="res://scenes/game_object/character_unlock/character_unlock.gd" id="1_fsjon"]
 [ext_resource type="Texture2D" uid="uid://281l704rfda7" path="res://assets/objects/heart_empty.png" id="1_i4ygj"]
 [ext_resource type="Texture2D" uid="uid://ba43xtx56mt8k" path="res://assets/misc/blood.png" id="2_fsjon"]
 
@@ -104,6 +105,7 @@ hue_variation_max = 0.1
 radius = 15.0
 
 [node name="CharacterUnlock" type="Node2D"]
+script = ExtResource("1_fsjon")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -125,6 +127,8 @@ texture = ExtResource("2_fsjon")
 process_material = SubResource("ParticleProcessMaterial_ftfqx")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_enft1")

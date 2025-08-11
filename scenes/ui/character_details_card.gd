@@ -4,7 +4,7 @@ class_name CharacterDetailsCard
 @onready var weapon_sprite: TextureRect = %WeaponSprite
 @onready var weapon_name: Label = %WeaponName
 @onready var character_name: Label = %CharacterName
-@onready var modifiers: Label = %Modifiers
+@onready var modifiers_label: Label = %Modifiers
 @onready var select_btn: Button = %SelectBtn
 
 
@@ -15,7 +15,7 @@ func set_character_details(character: Character) -> void:
 	weapon_sprite.texture = character.starting_ability.image
 	weapon_name.text = character.starting_ability.name
 	character_name.text = character.display_name
-	modifiers.text = create_modifier_string(character.modifiers)
+	modifiers_label.text = create_modifier_string(character.modifiers)
 	
 
 func create_modifier_string(modifiers: Dictionary) -> String:
