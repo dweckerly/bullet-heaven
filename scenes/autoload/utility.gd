@@ -8,6 +8,13 @@ func get_random_point_in_radius(center: Vector2, max_radius: float) -> Vector2:
 	return center + offset
 
 
+func get_random_top_position_viewport() -> Vector2:
+	var viewport_rect = get_viewport().get_visible_rect()
+	var random_x = randf_range(0, viewport_rect.size.x)
+	var y = 0  # Top of screen
+	return Vector2(random_x, y)
+
+
 func get_closest_enemies_within_range(source: Node2D, max_distance: float) -> Array[Node]:
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	enemies = enemies.filter(

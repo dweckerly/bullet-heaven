@@ -44,13 +44,21 @@ func on_timer_timeout():
 	var enemy_scene = enemy_table.pick_item()
 	var enemy = enemy_scene.instantiate() as Node2D
 	
+	
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	enemy.global_position = get_spawn_position()
+	if enemy.name == "SpiderEnemy":
+		enemy.global_position = Utility.get_random_top_position_viewport()
 	entities_layer.add_child(enemy)
 
-func on_arena_difficulty_increased(arean_difficulty: int):
-	var time_off = min((0.1 / 12) * arean_difficulty, 0.7)
+func on_arena_difficulty_increased(arena_difficulty: int):
+	var time_off = min((0.1 / 12) * arena_difficulty, 0.5)
 	timer.wait_time = base_spawn_time - time_off
 	
-	if arean_difficulty == 6:
+	print("arena difficulty: " + str(arena_difficulty))
+	
+	if arena_difficulty == 6:
 		enemy_table.add_item(enemy_scenes[1], 20)
+		
+	if arena_difficulty == 3:
+		enemy_table.add_item(enemy_scenes[2], 20)
