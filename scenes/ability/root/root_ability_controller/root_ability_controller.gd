@@ -40,5 +40,3 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		var percent_reduction = level_modifiers.LEVEL_MODS[level][Modifiers.COOLDOWN]
 		timer.wait_time = max(base_wait_time * (1 - percent_reduction), 0.1)
 		timer.start()
-	#elif upgrade.id == "sword_damage":
-		#additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.15)

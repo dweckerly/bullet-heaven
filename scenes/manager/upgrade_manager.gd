@@ -9,29 +9,26 @@ const UPGRADE_CHOICES: int = 2
 var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 
-var axe = preload("res://resources/upgrades/axe.tres")
-var bow = preload("res://resources/upgrades/bow.tres")
-var cross = preload("res://resources/upgrades/cross.tres")
-var fist = preload("res://resources/upgrades/fist.tres")
-var sword = preload("res://resources/upgrades/sword.tres")
-var staff = preload("res://resources/upgrades/staff.tres")
-
-#var player_speed = preload("res://resources/upgrades/player_speed.tres")
+var weapon_dict: Dictionary = {
+	"orc" : preload("res://resources/upgrades/axe.tres"),
+	"archer" : preload("res://resources/upgrades/bow.tres"),
+	"priest" : preload("res://resources/upgrades/cross.tres"),
+	"brawler" : preload("res://resources/upgrades/fist.tres"),
+	"druid" : preload("res://resources/upgrades/root.tres"),
+	"fighter" : preload("res://resources/upgrades/sword.tres"),
+	"wizard" : preload("res://resources/upgrades/staff.tres") 
+}
 
 
 func _ready() -> void:
-	#upgrade_pool.add_item(axe, BASE_WEIGHT)
-	upgrade_pool.add_item(cross, BASE_WEIGHT)
-	upgrade_pool.add_item(bow, BASE_WEIGHT)
-	upgrade_pool.add_item(sword, BASE_WEIGHT)
-	upgrade_pool.add_item(staff, BASE_WEIGHT)
-	#upgrade_pool.add_item(player_speed, BASE_WEIGHT)
+	for key in MetaProgression.save_data["characters"]:
+		if not MetaProgression.save_data["characters"][key]["locked"]:
+			upgrade_pool.add_item(weapon_dict[key], BASE_WEIGHT)
 	
 	xp_manager.level_up.connect(on_level_up)
 	var player_class = GameEvents.get_selected_character()
 	if player_class != null:
 		apply_upgrade(player_class.starting_ability)
-	
 
 
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade) -> void:
