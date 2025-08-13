@@ -48,7 +48,7 @@ func on_timer_timeout():
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	enemy.global_position = get_spawn_position()
 	if enemy.name == "SpiderEnemy":
-		enemy.global_position = Utility.get_random_top_position_viewport()
+		enemy.global_position = Utility.get_random_top_position_within_view(player.global_position)
 	entities_layer.add_child(enemy)
 
 func on_arena_difficulty_increased(arena_difficulty: int):

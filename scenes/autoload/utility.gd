@@ -8,11 +8,11 @@ func get_random_point_in_radius(center: Vector2, max_radius: float) -> Vector2:
 	return center + offset
 
 
-func get_random_top_position_viewport() -> Vector2:
-	var viewport_rect = get_viewport().get_visible_rect()
-	var random_x = randf_range(0, viewport_rect.size.x)
-	var y = 0  # Top of screen
-	return Vector2(random_x, y)
+func get_random_top_position_within_view(player_pos: Vector2) -> Vector2:
+	#640 360
+	var top_y = player_pos.y - 180 - 16 
+	var random_x = randf_range(player_pos.x - 320, player_pos.x + 320)
+	return Vector2(random_x, top_y)
 
 
 func get_closest_enemies_within_range(source: Node2D, max_distance: float) -> Array[Node]:

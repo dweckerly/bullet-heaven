@@ -7,13 +7,14 @@ enum State {
 }
 
 @export var descent_speed: float = 50.0
-@export var ascent_speed: float = 40.0
+@export var ascent_speed: float = 100.0
 @export var max_descent_distance: float = 300.0
 @export var web_thickness: float = 1.0
 
 @onready var visuals: Node2D = $Visuals
 @onready var velocity_component: VelocityComponent = $VelocityComponent 
 @onready var web_line: Line2D = $WebLine
+@onready var web_sprite: Sprite2D = $Visuals/WebSprite
 
 var current_state: State = State.DESCENDING
 var start_position: Vector2
@@ -24,6 +25,7 @@ var time_elapsed: float = 0.0
 
 func _ready() -> void:
 	$HurtboxComponent.hit.connect(on_hit)
+	web_sprite.global_position = web_anchor_point
 	start_position = global_position
 	web_anchor_point = start_position
 	# Set random descent target
@@ -90,8 +92,9 @@ func update_web_line():
 		var spider_pos = to_local(global_position)
 		var anchor_pos = to_local(web_anchor_point)
 		
-		web_line.set_point_position(0, anchor_pos)
+		web_line.set_point_position(0, Vector2(anchor_pos))
 		web_line.set_point_position(1, Vector2(spider_pos.x, spider_pos.y - 10))
+		web_sprite.global_position = web_anchor_point
 
 
 func hold_position(duration: float = 2.0):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://t22qxh0ci5k0"]
+[gd_scene load_steps=23 format=3 uid="uid://t22qxh0ci5k0"]
 
 [ext_resource type="Script" uid="uid://co784agq1hh6d" path="res://scenes/game_object/enemy/spider_enemy/spider_enemy.gd" id="1_ohkq8"]
 [ext_resource type="PackedScene" uid="uid://c106e8kkata6g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="2_7mvfs"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bwlr7d6wtndt0" path="res://scenes/component/death_componnent.tscn" id="13_l0kek"]
 [ext_resource type="PackedScene" uid="uid://cd1j348s6rxh8" path="res://scenes/component/hurtbox_component.tscn" id="14_aacfe"]
 [ext_resource type="Texture2D" uid="uid://cmtmnodm1bh41" path="res://assets/enemies/spider.png" id="15_hc51b"]
+[ext_resource type="Texture2D" uid="uid://8qxqldx8n4vr" path="res://assets/misc/web.png" id="16_7mvfs"]
 
 [sub_resource type="Animation" id="Animation_qku51"]
 length = 0.001
@@ -136,6 +137,9 @@ shape = SubResource("CircleShape2D_elloc")
 z_index = 5
 texture = ExtResource("15_hc51b")
 offset = Vector2(0, -6)
+
+[node name="WebSprite" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("16_7mvfs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
