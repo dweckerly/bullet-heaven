@@ -17,7 +17,6 @@ var direction = Vector2.RIGHT.angle()
 
 var base_wait_time: float
 
-
 func _ready() -> void:
 	base_wait_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
@@ -28,8 +27,6 @@ func on_timer_timeout() -> void:
 	if player == null:
 		return
 	
-	var target_enemies = Utility.get_closest_enemies_within_range(player, MAX_RANGE)
-	var enemy_count = target_enemies.size() 
 	var moves = fist_ability.size()
 	for i in level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT]:
 		var fist_instance = fist_ability[i % moves].instantiate() as FistAbility
@@ -37,19 +34,9 @@ func on_timer_timeout() -> void:
 		foreground_layer.add_child(fist_instance)
 		fist_instance.hitbox_component.damage = base_damage * additional_damage_percent
 		fist_instance.hitbox_component.knockback = knockback_strength
-		var fist_direction = player.global_position
-		
-		var target_enemy = null
-		if enemy_count > 0:
-			target_enemy = target_enemies[i % enemy_count]
-		if target_enemy == null:
-			fist_instance.global_position = player.global_position
-		else:
-			fist_instance.global_position = target_enemy.global_position
-			fist_direction = target_enemy.global_position - fist_instance.global_position
-		fist_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4
-		
-		fist_instance.rotation = fist_direction.angle()
+
+		fist_instance.global_position = player.global_position
+		fist_instance.rotation = face_player_movement_direction(player)
 		
 		await get_tree().create_timer(0.3).timeout
 
@@ -59,3 +46,9 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		var percent_reduction = level_modifier.LEVEL_MODS[level][Modifiers.COOLDOWN]
 		timer.wait_time = max(base_wait_time * (1 - percent_reduction), 0.1)
 		timer.start()
+
+func face_player_movement_direction(player: Node2D) -> float:
+	var movement_vector = player.get_movement_vector().normalized()
+	if movement_vector.x != 0 || movement_vector.y != 0:
+		last_movement_vector = movement_vector
+	return last_movement_vector.angle()

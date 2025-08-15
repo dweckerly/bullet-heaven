@@ -4,7 +4,7 @@ class_name BowAbility
 @onready var hitbox_component = $HitboxComponent
 
 var direction
-var speed = 100
+var speed = 150
 var max_hits: int = 2
 var hits: int  = 0
 
