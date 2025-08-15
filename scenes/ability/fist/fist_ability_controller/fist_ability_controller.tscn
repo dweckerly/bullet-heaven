@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://v6vsrmpp0yef"]
+[gd_scene load_steps=5 format=3 uid="uid://v6vsrmpp0yef"]
 
 [ext_resource type="Script" uid="uid://de0b4g6ijw1o0" path="res://scenes/ability/fist/fist_ability_controller/fist_ability_controller.gd" id="1_dll5k"]
-[ext_resource type="PackedScene" uid="uid://djnjfnglndlxn" path="res://scenes/ability/fist/fist_ability.tscn" id="2_i4ohe"]
+[ext_resource type="PackedScene" uid="uid://djnjfnglndlxn" path="res://scenes/ability/fist/fist_ability_0.tscn" id="2_i4ohe"]
 [ext_resource type="Resource" uid="uid://cwxir1k6w0twi" path="res://resources/upgrades/level_modifiers/fist_level_mods.tres" id="3_dhyxd"]
+[ext_resource type="PackedScene" uid="uid://ccwduei80174e" path="res://scenes/ability/fist/fist_ability_1.tscn" id="3_uddrh"]
 
 [node name="FistAbilityController" type="Node"]
 script = ExtResource("1_dll5k")
-fist_ability = ExtResource("2_i4ohe")
+fist_ability = Array[PackedScene]([ExtResource("2_i4ohe"), ExtResource("3_uddrh")])
 level_modifier = ExtResource("3_dhyxd")
 
 [node name="Timer" type="Timer" parent="."]

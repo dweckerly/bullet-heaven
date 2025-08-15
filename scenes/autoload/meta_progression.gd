@@ -10,7 +10,7 @@ var save_data: Dictionary = {
 			"locked": false
 		},
 		"brawler": {
-			"locked": true
+			"locked": false
 		},
 		"fighter": {
 			"locked": false
