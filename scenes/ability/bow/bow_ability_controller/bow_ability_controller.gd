@@ -34,9 +34,9 @@ func on_timer_timeout() -> void:
 	if foreground == null:
 		return
 		
-	var base_angle = (180 / (level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT] + 1)) - 90
-	for i in level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT]:
-		var adjusted_angle = base_angle + (180 / (level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT] + 1)) * i
+	var base_angle = (180 / (level + 1)) - 90
+	for i in level:
+		var adjusted_angle = base_angle + (180 / (level + 1)) * i
 		var bow_instance = bow_ability_scene.instantiate() as BowAbility
 		foreground.add_child(bow_instance)
 		bow_instance.global_position = player.global_position

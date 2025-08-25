@@ -91,12 +91,11 @@ func on_health_changed() -> void:
 	update_health_display()
 	$RandomStreamPlayer2DComponent.play_random()
 	
+var equip_dict: Dictionary = {}
 
 func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if ability_upgrade is Ability:
-		if current_upgrades[ability_upgrade.id]["quantity"] > 1:
-			pass
-		else:
+		if current_upgrades[ability_upgrade.id]["quantity"] == 1:
 			abilities.add_child((ability_upgrade as Ability).ability_controller_scene.instantiate())
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + \

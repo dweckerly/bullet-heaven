@@ -19,6 +19,9 @@ var weapon_dict: Dictionary = {
 	"wizard" : preload("res://resources/upgrades/staff.tres") 
 }
 
+#var equipment_dict: Dictionary = {
+	#"fox_amulet"
+#}
 
 func _ready() -> void:
 	for key in MetaProgression.save_data["characters"]:
