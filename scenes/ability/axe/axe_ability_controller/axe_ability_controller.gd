@@ -21,7 +21,7 @@ func _ready() -> void:
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	player = get_tree().get_first_node_in_group("player") as Node2D
 	axe_scale = axe_scale * (1 + player.character.modifiers[Modifiers.SIZE]['value'])
-	base_wait_time = timer.wait_time * player.character.modifiers[Modifiers.COOLDOWN]['value']
+	base_wait_time = timer.wait_time - (timer.wait_time * player.character.modifiers[Modifiers.COOLDOWN]['value'])
 	
 
 func on_timer_timeout() -> void:

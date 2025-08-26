@@ -16,7 +16,7 @@ var player
 
 func _ready() -> void:
 	timer.timeout.connect(on_timer_timeout)
-	base_wait_time = timer.wait_time * player.character.modifiers[Modifiers.COOLDOWN]['value']
+	base_wait_time = timer.wait_time - (timer.wait_time * player.character.modifiers[Modifiers.COOLDOWN]['value'])
 	player = get_tree().get_first_node_in_group("player") as Player
 	cross_scale = cross_scale * (1 +  player.character.modifiers[Modifiers.SIZE]['value'])
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
