@@ -18,7 +18,7 @@ var base_wait_time: float
 
 func _ready() -> void:
 	timer.timeout.connect(on_timer_timeout)
-	base_wait_time = timer.wait_time
+	base_wait_time = timer.wait_time * player.character.modifiers[Modifiers.COOLDOWN]['value']
 	player = get_tree().get_first_node_in_group("player") as Player
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
@@ -42,9 +42,8 @@ func on_timer_timeout() -> void:
 		bow_instance.global_position = player.global_position
 		bow_instance.rotation = direction + deg_to_rad(adjusted_angle)
 		bow_instance.hitbox_component.damage = base_damage * \
-			(1 + level_modifier.LEVEL_MODS[level][Modifiers.DAMAGE]\
-				+ player.character.modifiers[Modifiers.DAMAGE]['value'])
-		bow_instance.speed = bow_instance.speed * (1 + level_modifier.LEVEL_MODS[level][Modifiers.SPEED])
+			(1 + player.character.modifiers[Modifiers.DAMAGE]['value'])
+		bow_instance.speed = bow_instance.speed * (1 + player.character.modifiers[Modifiers.SPEED]['value'])
 		#bow_instance.hitbox_component.knockback = knockback_strength
 
 
@@ -58,7 +57,7 @@ func face_player_movement_direction() -> void:
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if upgrade.id == id:
 		level = current_upgrades[id]["quantity"]
-		var percent_reduction = level_modifier.LEVEL_MODS[level][Modifiers.COOLDOWN]
+		var percent_reduction = player.character.modifiers[Modifiers.COOLDOWN]['value']
 		timer.wait_time = max(base_wait_time - (base_wait_time * percent_reduction), 0.1)
 		timer.start()
 	
