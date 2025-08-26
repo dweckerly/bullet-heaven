@@ -2,15 +2,20 @@ extends Node2D
 class_name BowAbility
 
 @onready var hitbox_component = $HitboxComponent
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var collision_shape_2d: CollisionShape2D = $HitboxComponent/CollisionShape2D
 
 var direction
 var speed = 150
 var max_hits: int = 2
 var hits: int  = 0
+var scale_mod: float = 1.0
 
 func _ready() -> void:
 	$Timer.timeout.connect(on_timer_timeout)
 	hitbox_component.area_entered.connect(on_area_entered)
+	sprite_2d.scale *= scale_mod
+	collision_shape_2d.scale *= scale_mod
 
 
 func _process(delta: float) -> void:

@@ -11,7 +11,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cross:scale")
+tracks/0/path = NodePath("Visuals/Cross:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -35,7 +35,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HolyEffect:scale")
+tracks/2/path = NodePath("Visuals/HolyEffect:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -47,7 +47,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HolyEffect:rotation")
+tracks/3/path = NodePath("Visuals/HolyEffect:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -63,7 +63,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cross:scale")
+tracks/0/path = NodePath("Visuals/Cross:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -87,7 +87,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HolyEffect:scale")
+tracks/2/path = NodePath("Visuals/HolyEffect:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -99,7 +99,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HolyEffect:rotation")
+tracks/3/path = NodePath("Visuals/HolyEffect:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -157,21 +157,23 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="HolyEffect" type="Sprite2D" parent="."]
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="HolyEffect" type="Sprite2D" parent="Visuals"]
 modulate = Color(1, 1, 1, 0.5)
 texture = ExtResource("2_6i8cj")
 
-[node name="Cross" type="Sprite2D" parent="."]
+[node name="Cross" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("2_xus74")
 
-[node name="PixelParticles" type="GPUParticles2D" parent="."]
+[node name="PixelParticles" type="GPUParticles2D" parent="Visuals"]
 emitting = false
 amount = 500
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_572ls")
 
-[node name="CrossParticles" type="GPUParticles2D" parent="."]
+[node name="CrossParticles" type="GPUParticles2D" parent="Visuals"]
 emitting = false
 amount = 50
 texture = ExtResource("3_6i8cj")

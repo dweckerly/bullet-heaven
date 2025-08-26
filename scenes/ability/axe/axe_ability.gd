@@ -6,12 +6,14 @@ const MAX_ROTATIONS: int = 2
 
 @onready var hitbox_component = $HitboxComponent
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var collision_shape_2d: CollisionShape2D = $HitboxComponent/CollisionShape2D
 
 var base_rotation: Vector2 = Vector2.RIGHT
 
 var scale_mod: float = 1.0
 
 func _ready() -> void:
+	collision_shape_2d.scale *= scale_mod
 	base_rotation = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	var tween = create_tween()
 	tween.set_parallel()
