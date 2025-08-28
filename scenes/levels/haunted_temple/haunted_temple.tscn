@@ -722,7 +722,7 @@ unique_name_in_owner = true
 position = Vector2(152, 218)
 
 [node name="CharacterUnlock" parent="Entities" instance=ExtResource("15_4d111")]
-position = Vector2(-808, -1380)
+position = Vector2(-810, -1380)
 character_id = "druid"
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]

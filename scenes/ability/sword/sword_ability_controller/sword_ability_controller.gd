@@ -39,7 +39,7 @@ func on_timer_timeout():
 			if target_enemy != null:
 					sword_spawn_position = target_enemy.global_position
 			sword_instance.global_position = sword_spawn_position
-			sword_instance.scale_mod = sword_scale
+			sword_instance.set_scale_mod(sword_scale)
 			sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4
 			var enemy_direction = sword_spawn_position - player.global_position
 			sword_instance.rotation = enemy_direction.angle()
