@@ -28,7 +28,7 @@ func on_timer_timeout() -> void:
 		return
 	
 	var moves = fist_ability.size()
-	for i in level_modifier.LEVEL_MODS[level][Modifiers.AMOUNT]:
+	for i in level:
 		var fist_instance = fist_ability[i % moves].instantiate() as FistAbility
 		var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 		foreground_layer.add_child(fist_instance)
