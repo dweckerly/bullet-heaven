@@ -3,7 +3,6 @@ extends Node
 const MAX_RANGE: float = 60.0
 
 @export var fist_ability: Array[PackedScene]
-@export var level_modifier: LevelModifier
 
 @onready var timer: Timer = $Timer
 

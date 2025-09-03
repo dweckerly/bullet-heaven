@@ -34,6 +34,11 @@ var save_data: Dictionary = {
 			"locked": false
 		},
 	},
+	"equiqment" : {
+		"fox_amulet": {
+			"locked" : false
+		}
+	},
 	"meta_upgrades": {}
 }
 

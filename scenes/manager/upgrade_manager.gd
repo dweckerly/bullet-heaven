@@ -19,14 +19,18 @@ var weapon_dict: Dictionary = {
 	"wizard" : preload("res://resources/upgrades/staff.tres") 
 }
 
-#var equipment_dict: Dictionary = {
-	#"fox_amulet"
-#}
+var equipment_dict: Dictionary = {
+	"fox_amulet" : preload("res://resources/upgrades/fox_amulet.tres")
+}
 
 func _ready() -> void:
 	for key in MetaProgression.save_data["characters"]:
 		if not MetaProgression.save_data["characters"][key]["locked"]:
 			upgrade_pool.add_item(weapon_dict[key], BASE_WEIGHT)
+	
+	for key in equipment_dict:
+		if not MetaProgression.save_date['equipment'][key]['locked']:
+			upgrade_pool.add_item(equipment_dict[key], BASE_WEIGHT)
 	
 	xp_manager.level_up.connect(on_level_up)
 	var player_class = GameEvents.get_selected_character()
