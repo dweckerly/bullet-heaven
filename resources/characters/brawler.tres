@@ -1,12 +1,63 @@
-[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://co0h13h60ypac"]
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://b0cbgla4d8lfc"]
 
 [ext_resource type="Script" uid="uid://bulbjwm4n0h7q" path="res://resources/characters/character.gd" id="1_mujvs"]
 [ext_resource type="Texture2D" uid="uid://dqbrmxhh7yjgd" path="res://assets/characters/brawler.png" id="2_mujvs"]
-[ext_resource type="Resource" uid="uid://ys7cqs05mo4q" path="res://resources/upgrades/fist.tres" id="3_vfpxt"]
+[ext_resource type="Resource" uid="uid://eu50pgkp1fdi" path="res://resources/upgrades/fist.tres" id="3_mujvs"]
 
 [resource]
 script = ExtResource("1_mujvs")
 id = "brawler"
 display_name = "Brawler"
 sprite = ExtResource("2_mujvs")
-starting_ability = ExtResource("3_vfpxt")
+starting_ability = ExtResource("3_mujvs")
+modifiers = {
+"AMOUNT": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"COOLDOWN": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"DAMAGE": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"LIVES": {
+"value": 0
+},
+"MAX_HEALTH": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"MOVE_SPEED": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"REACH": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"SIZE": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"SPEED": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+},
+"XP_GAIN": {
+"level_up": false,
+"max": 1.0,
+"value": 0.0
+}
+}
+metadata/_custom_type_script = "uid://bulbjwm4n0h7q"

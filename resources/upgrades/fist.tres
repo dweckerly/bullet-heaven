@@ -1,17 +1,15 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=5 format=3 uid="uid://ys7cqs05mo4q"]
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://eu50pgkp1fdi"]
 
-[ext_resource type="PackedScene" uid="uid://v6vsrmpp0yef" path="res://scenes/ability/fist/fist_ability_controller/fist_ability_controller.tscn" id="1_rijn4"]
+[ext_resource type="PackedScene" uid="uid://v0i8qafa0723" path="res://scenes/ability/fist/fist_ability_controller/fist_ability_controller.tscn" id="1_1kgnn"]
+[ext_resource type="Texture2D" uid="uid://dwg30pnafbjeh" path="res://assets/objects/fist.png" id="1_rijn4"]
 [ext_resource type="Script" uid="uid://dub5boqo31n4u" path="res://resources/upgrades/ability.gd" id="2_1kgnn"]
-[ext_resource type="Resource" uid="uid://cwxir1k6w0twi" path="res://resources/upgrades/level_modifiers/fist_level_mods.tres" id="2_cxoho"]
-[ext_resource type="Texture2D" uid="uid://dwg30pnafbjeh" path="res://assets/objects/fist.png" id="2_dbn68"]
 
 [resource]
 script = ExtResource("2_1kgnn")
-ability_controller_scene = ExtResource("1_rijn4")
-image = ExtResource("2_dbn68")
+ability_controller_scene = ExtResource("1_1kgnn")
+image = ExtResource("1_rijn4")
 id = "fist"
 max_quantity = 5
 name = "Fist"
 description = "Spawns a powerful punch to knockback the nearest enemies."
-level_modifiers = ExtResource("2_cxoho")
 metadata/_custom_type_script = "uid://dub5boqo31n4u"

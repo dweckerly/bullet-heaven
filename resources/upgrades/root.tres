@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=5 format=3 uid="uid://dflvxlbxowxlf"]
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://dflvxlbxowxlf"]
 
 [ext_resource type="Texture2D" uid="uid://djtpfr4fiiuow" path="res://assets/objects/root.png" id="1_hc5jh"]
 [ext_resource type="Script" uid="uid://dub5boqo31n4u" path="res://resources/upgrades/ability.gd" id="1_ss8pe"]
 [ext_resource type="PackedScene" uid="uid://pk4wlr7bnjql" path="res://scenes/ability/root/root_ability_controller/root_ability_controller.tscn" id="1_tk445"]
-[ext_resource type="Resource" uid="uid://b1u04hn2d87he" path="res://resources/upgrades/level_modifiers/root_level_modifier.tres" id="3_kvgi5"]
 
 [resource]
 script = ExtResource("1_ss8pe")
@@ -13,5 +12,4 @@ id = "root"
 max_quantity = 5
 name = "Root"
 description = "Roots violently explode from underground to attack nearby foes."
-level_modifiers = ExtResource("3_kvgi5")
 metadata/_custom_type_script = "uid://dub5boqo31n4u"

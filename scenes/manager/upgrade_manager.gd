@@ -29,7 +29,7 @@ func _ready() -> void:
 			upgrade_pool.add_item(weapon_dict[key], BASE_WEIGHT)
 	
 	for key in equipment_dict:
-		if not MetaProgression.save_date['equipment'][key]['locked']:
+		if not MetaProgression.save_data["equipment"][key]["locked"]:
 			upgrade_pool.add_item(equipment_dict[key], BASE_WEIGHT)
 	
 	xp_manager.level_up.connect(on_level_up)

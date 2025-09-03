@@ -34,7 +34,7 @@ var save_data: Dictionary = {
 			"locked": false
 		},
 	},
-	"equiqment" : {
+	"equipment" : {
 		"fox_amulet": {
 			"locked" : false
 		}
