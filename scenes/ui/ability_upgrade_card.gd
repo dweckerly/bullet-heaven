@@ -7,6 +7,7 @@ signal selected
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hover_animation_player: AnimationPlayer = $HoverAnimationPlayer
 @onready var description_label: Label = $%DescriptionLabel
+@onready var texture_rect: TextureRect = $VBoxContainer/TextureRect
 
 var disabled: bool = false
 
@@ -29,7 +30,8 @@ func play_discard_animation() -> void:
 
 func set_ability_upgrade(upgrade: AbilityUpgrade, level: int):
 	name_label.text = upgrade.name
-	description_label.text = upgrade.level_modifiers.LEVEL_MODS[level]["description"]
+	texture_rect.texture = upgrade.image
+	description_label.text = upgrade.description
 
 
 func select_card() -> void:

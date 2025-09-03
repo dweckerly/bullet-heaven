@@ -1,7 +1,6 @@
 extends Node
 
 @export var staff_ability: PackedScene
-@export var level_modifiers: LevelModifier
 
 @onready var timer: Timer = $Timer
 

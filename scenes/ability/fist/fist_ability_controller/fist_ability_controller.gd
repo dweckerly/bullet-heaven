@@ -15,6 +15,7 @@ var last_movement_vector = Vector2.RIGHT
 var direction = Vector2.RIGHT.angle()
 
 var base_wait_time: float
+var player
 
 func _ready() -> void:
 	base_wait_time = timer.wait_time
@@ -22,7 +23,7 @@ func _ready() -> void:
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	
 func on_timer_timeout() -> void:
-	var player = get_tree().get_first_node_in_group("player") as Node2D
+	player = get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
 		return
 	
@@ -42,7 +43,7 @@ func on_timer_timeout() -> void:
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if upgrade.id == id:
 		level = current_upgrades[id]["quantity"]
-		var percent_reduction = level_modifier.LEVEL_MODS[level][Modifiers.COOLDOWN]
+		var percent_reduction = player.character.modifiers[Modifiers.COOLDOWN]['value']
 		timer.wait_time = max(base_wait_time * (1 - percent_reduction), 0.1)
 		timer.start()
 
