@@ -36,7 +36,7 @@ func on_timer_timeout() -> void:
 		fist_instance.hitbox_component.knockback = knockback_strength
 
 		fist_instance.global_position = player.global_position
-		fist_instance.rotation = face_player_movement_direction(player)
+		fist_instance.rotation = face_player_movement_direction()
 		
 		await get_tree().create_timer(0.3).timeout
 
@@ -47,7 +47,7 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		timer.wait_time = max(base_wait_time * (1 - percent_reduction), 0.1)
 		timer.start()
 
-func face_player_movement_direction(player: Node2D) -> float:
+func face_player_movement_direction() -> float:
 	var movement_vector = player.get_movement_vector().normalized()
 	if movement_vector.x != 0 || movement_vector.y != 0:
 		last_movement_vector = movement_vector
