@@ -20,7 +20,9 @@ var weapon_dict: Dictionary = {
 }
 
 var equipment_dict: Dictionary = {
-	"fox_amulet" : preload("res://resources/upgrades/fox_amulet.tres")
+	"fire_ring" : preload("res://resources/upgrades/fire_ring.tres"),
+	"fox_amulet" : preload("res://resources/upgrades/fox_amulet.tres"),
+	"nova_crown" : preload("res://resources/upgrades/nova_crown.tres")
 }
 
 func _ready() -> void:

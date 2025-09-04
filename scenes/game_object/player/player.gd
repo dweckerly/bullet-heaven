@@ -13,6 +13,7 @@ const ACCELERATION_SMOOTHING = 25
 @onready var velocity_component: VelocityComponent = $VelocityComponent
 @onready var sprite_2d: Sprite2D = $Visuals/Sprite2D
 @onready var player_hurtbox: Area2D = $PlayerHurtbox
+@onready var pickup_area: Area2D = $PickupArea
 
 var number_colliding_bodies: int = 0
 var base_speed: float = 0
@@ -97,6 +98,13 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 	if ability_upgrade is Ability:
 		if current_upgrades[ability_upgrade.id]["quantity"] == 1:
 			abilities.add_child((ability_upgrade as Ability).ability_controller_scene.instantiate())
-	elif ability_upgrade.id == "player_speed":
-		velocity_component.max_speed = base_speed + \
-		(base_speed * current_upgrades["player_speed"]["quantity"] * 0.25)
+	else:
+		if ability_upgrade.id == "fire_ring":
+			character.modifiers[Modifiers.DAMAGE]['value'] += 0.25
+		if ability_upgrade.id == "fox_amulet":
+			character.modifiers[Modifiers.XP_GAIN]['value'] += 0.25
+		if ability_upgrade.id == "nova_crown":
+			character.modifiers[Modifiers.REACH]['value'] += 1
+			pickup_area.scale *= (1 + character.modifiers[Modifiers.REACH]['value'])
+		#velocity_component.max_speed = base_speed + \
+		#(base_speed * current_upgrades["player_speed"]["quantity"] * 0.25)

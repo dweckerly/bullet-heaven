@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://cicxgok4hf43b"]
+
+[ext_resource type="Texture2D" uid="uid://bn4xl5cno1e2u" path="res://assets/objects/fox_amulet.png" id="1_7ve1l"]
+[ext_resource type="Script" uid="uid://y8osvm1j0bv4" path="res://resources/upgrades/ability_upgrade.gd" id="2_jfhx4"]
+
+[resource]
+script = ExtResource("2_jfhx4")
+image = ExtResource("1_7ve1l")
+id = "fox_amulet"
+max_quantity = 5
+name = "Fox Amulet"
+description = "Increases XP gain"
+metadata/_custom_type_script = "uid://y8osvm1j0bv4"

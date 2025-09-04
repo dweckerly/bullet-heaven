@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://bob4vyewgsnqx"]
 
-[ext_resource type="Texture2D" uid="uid://bn4xl5cno1e2u" path="res://assets/objects/fox_amulet.png" id="1_ahphc"]
+[ext_resource type="Texture2D" uid="uid://mu76otmoyh50" path="res://assets/objects/fire_ring.png" id="1_ahphc"]
 [ext_resource type="Script" uid="uid://y8osvm1j0bv4" path="res://resources/upgrades/ability_upgrade.gd" id="1_ygf7j"]
 
 [resource]
 script = ExtResource("1_ygf7j")
 image = ExtResource("1_ahphc")
-id = "fox_amulet"
+id = "fire_ring"
 max_quantity = 5
-name = "Fox Amulet"
-description = "Increases XP gain"
+name = "Flame Ring"
+description = "Increases damage dealt."
 metadata/_custom_type_script = "uid://y8osvm1j0bv4"

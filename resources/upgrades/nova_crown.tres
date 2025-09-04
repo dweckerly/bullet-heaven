@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://d162pu8e0dlfu"]
+
+[ext_resource type="Texture2D" uid="uid://yj48h64nj77m" path="res://assets/objects/nova_crown.png" id="1_brk6j"]
+[ext_resource type="Script" uid="uid://y8osvm1j0bv4" path="res://resources/upgrades/ability_upgrade.gd" id="2_84nqe"]
+
+[resource]
+script = ExtResource("2_84nqe")
+image = ExtResource("1_brk6j")
+id = "nova_crown"
+max_quantity = 5
+name = "Nova Crown"
+description = "Increases pick up area."
+metadata/_custom_type_script = "uid://y8osvm1j0bv4"

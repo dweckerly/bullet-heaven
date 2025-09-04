@@ -35,7 +35,13 @@ var save_data: Dictionary = {
 		},
 	},
 	"equipment" : {
+		"fire_ring": {
+			"locked" : false
+		},
 		"fox_amulet": {
+			"locked" : false
+		},
+		"nova_crown": {
 			"locked" : false
 		}
 	},
