@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://hhgk61kq382n"]
+
+[ext_resource type="Texture2D" uid="uid://dcllvogouolfi" path="res://assets/objects/armor.png" id="1_4rcfw"]
+[ext_resource type="Script" uid="uid://y8osvm1j0bv4" path="res://resources/upgrades/ability_upgrade.gd" id="2_k2mov"]
+
+[resource]
+script = ExtResource("2_k2mov")
+image = ExtResource("1_4rcfw")
+id = "armor"
+max_quantity = 5
+name = "Chain Armor"
+description = "Increases maximum health."
+metadata/_custom_type_script = "uid://y8osvm1j0bv4"

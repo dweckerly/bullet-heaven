@@ -99,6 +99,12 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 		if current_upgrades[ability_upgrade.id]["quantity"] == 1:
 			abilities.add_child((ability_upgrade as Ability).ability_controller_scene.instantiate())
 	else:
+		if ability_upgrade.id == "armor":
+			character.modifiers[Modifiers.MAX_HEALTH]['value'] += 0.25
+			var new_max_health = health_component.max_health * (1 + character.modifiers[Modifiers.MAX_HEALTH]['value'])
+			var health_diff = new_max_health - health_component.max_health
+			health_component.max_health = new_max_health
+			health_component.current_health += health_diff
 		if ability_upgrade.id == "fire_ring":
 			character.modifiers[Modifiers.DAMAGE]['value'] += 0.25
 		if ability_upgrade.id == "fox_amulet":

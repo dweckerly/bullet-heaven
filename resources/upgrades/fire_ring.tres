@@ -9,5 +9,5 @@ image = ExtResource("1_7ve1l")
 id = "fox_amulet"
 max_quantity = 5
 name = "Fox Amulet"
-description = "Increases XP gain"
+description = "Increases XP gain."
 metadata/_custom_type_script = "uid://y8osvm1j0bv4"

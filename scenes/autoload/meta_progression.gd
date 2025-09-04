@@ -35,6 +35,9 @@ var save_data: Dictionary = {
 		},
 	},
 	"equipment" : {
+		"armor": {
+			"locked" : false
+		},
 		"fire_ring": {
 			"locked" : false
 		},
