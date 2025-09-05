@@ -16,7 +16,6 @@ func emit_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dicti
 func emit_player_damaged() -> void:
 	player_damaged.emit()
 
-
 func get_selected_character() -> Character:
 	return selected_character
 

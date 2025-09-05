@@ -12,19 +12,14 @@ var cross_scale: float = 1.0
 var axe_duration: float = 1.0
 var base_wait_time: float
 
-var player
-
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player") as Player
 	timer.timeout.connect(on_timer_timeout)
-	base_wait_time = timer.wait_time - (timer.wait_time * player.character.modifiers[Modifiers.COOLDOWN]['value'])
-	cross_scale = cross_scale * (1 +  player.character.modifiers[Modifiers.SIZE]['value'])
+	base_wait_time = timer.wait_time - (timer.wait_time * Global.get_player_modifier_value(Modifiers.COOLDOWN))
+	cross_scale = cross_scale * (1 +  Global.get_player_modifier_value(Modifiers.SIZE))
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	
 
 func on_timer_timeout() -> void:
-	if player == null:
-		return
 	var foreground = get_tree().get_first_node_in_group("foreground_layer") as Node2D
 	if foreground == null:
 		return
@@ -33,15 +28,15 @@ func on_timer_timeout() -> void:
 		var cross_instance = cross_ability_scene.instantiate() as CrossAbility
 		cross_instance.scale_mod = cross_scale
 		foreground.add_child(cross_instance)
-		cross_instance.global_position = player.global_position
+		cross_instance.global_position = Global.get_player_global_pos()
 		cross_instance.hitbox_component.damage = base_damage * \
-			(1 + player.character.modifiers[Modifiers.DAMAGE]['value'])
+			(1 + Global.get_player_modifier_value(Modifiers.DAMAGE))
 		
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if upgrade.id == id:
 		level = current_upgrades[id]["quantity"]
-		cross_scale = cross_scale * (1 +  player.character.modifiers[Modifiers.SIZE]['value'])
-		var percent_reduction = player.character.modifiers[Modifiers.COOLDOWN]['value']
+		cross_scale = cross_scale * (1 +  Global.get_player_modifier_value(Modifiers.SIZE))
+		var percent_reduction = Global.get_player_modifier_value(Modifiers.COOLDOWN)
 		timer.wait_time = max(base_wait_time - (base_wait_time * percent_reduction), 0.1)
 		timer.start()

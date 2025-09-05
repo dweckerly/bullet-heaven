@@ -18,15 +18,14 @@ func _ready() -> void:
 
 
 func get_spawn_position() -> Vector2:
-	var player = get_tree().get_first_node_in_group("player") as Node2D
-	if player == null:
+	if Global.get_player() == null:
 		return Vector2.ZERO
 	var spawn_position = Vector2.ZERO
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	for i in 4:
-		spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
+		spawn_position = Global.get_player_global_pos() + (random_direction * SPAWN_RADIUS)
 		
-		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position, 1)
+		var query_parameters = PhysicsRayQueryParameters2D.create(Global.get_player_global_pos(), spawn_position, 1)
 		var result = get_tree().root.world_2d.direct_space_state.intersect_ray(query_parameters)
 		
 		if result.is_empty():
@@ -37,18 +36,16 @@ func get_spawn_position() -> Vector2:
 
 func on_timer_timeout():
 	timer.start()
-	var player = get_tree().get_first_node_in_group("player") as Node2D
-	if player == null:
+	if Global.get_player() == null:
 		return
 	
 	var enemy_scene = enemy_table.pick_item()
 	var enemy = enemy_scene.instantiate() as Node2D
 	
-	
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	enemy.global_position = get_spawn_position()
 	if enemy.name == "SpiderEnemy":
-		enemy.global_position = Utility.get_random_top_position_within_view(player.global_position)
+		enemy.global_position = Utility.get_random_top_position_within_view(Global.get_player_global_pos())
 	entities_layer.add_child(enemy)
 
 func on_arena_difficulty_increased(arena_difficulty: int):

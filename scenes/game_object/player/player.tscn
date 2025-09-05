@@ -125,7 +125,6 @@ libraries = {
 streams = Array[AudioStream]([ExtResource("3_gbew5"), ExtResource("4_oxhc3"), ExtResource("5_mxgtx"), ExtResource("6_l1g56")])
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_tj6oj")]
-max_speed = 50
 acceleration = 25.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_ss5pk")]

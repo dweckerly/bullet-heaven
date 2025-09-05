@@ -12,18 +12,17 @@ func accelerate_to_player() -> void:
 	if owner_node2d == null:
 		return
 	
-	var player = get_tree().get_first_node_in_group("player") as Node2D
-	if player == null:
+	if Global.get_player() == null:
 		return
 	
 	var direction = Vector2.ZERO
 	if knockback > 0:
-		direction = (owner_node2d.global_position - player.global_position).normalized()
+		direction = (owner_node2d.global_position - Global.get_player_global_pos()).normalized()
 		knockback = lerp(knockback, 0.0, 0.5)
 		if knockback < 0.001:
 			knockback = 0
 	else:
-		direction = (player.global_position - owner_node2d.global_position).normalized()
+		direction = (Global.get_player_global_pos() - owner_node2d.global_position).normalized()
 	accelerate_in_direction(direction)
 
 

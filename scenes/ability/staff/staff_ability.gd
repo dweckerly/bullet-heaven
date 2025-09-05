@@ -4,19 +4,15 @@ class_name StaffAbility
 @export var missile: PackedScene
 
 var MAX_RANGE: int = 400
-var player
 var damage: float = 10
 var missiles_count: int = 1
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player") as Node2D
 	await $AnimationPlayer.animation_finished
 	on_animation_finished()
 
 func _process(delta: float) -> void:
-	if player == null:
-		return
-	global_position = player.global_position + Vector2(0, -32)
+	global_position = Global.get_player_global_pos() + Vector2(0, -32)
 
 func set_missile_count(amount: int) -> void:
 	missiles_count = amount
@@ -25,10 +21,7 @@ func set_missle_damage(amount: float) -> void:
 	damage = amount
 
 func on_animation_finished() -> void:
-	if player == null:
-		return
-		
-	var target_enemies = Utility.get_closest_enemies_within_range(player, MAX_RANGE)
+	var target_enemies = Utility.get_closest_enemies_within_range(Global.get_player(), MAX_RANGE)
 	var enemy_count = target_enemies.size()
 	if enemy_count > 0:
 		for i in missiles_count:

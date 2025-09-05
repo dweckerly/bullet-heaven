@@ -5,25 +5,22 @@ extends Node2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var sprite: Sprite2D = $Sprite2D
 
-var player: Player
-
 func _ready() -> void:
 	$Area2D.area_entered.connect(on_area_entered)
 
 func tween_collect(percent: float, start_position: Vector2) -> void:
-	player = get_tree().get_first_node_in_group("player") as Node2D
-	if player == null:
+	if Global.get_player() == null:
 		return
 	
-	global_position = start_position.lerp(player.global_position, percent)
+	global_position = start_position.lerp(Global.get_player_global_pos(), percent)
 	
-	var direction_from_start = player.global_position - start_position
+	var direction_from_start = Global.get_player_global_pos() - start_position
 	var target_rotation = direction_from_start.angle()
 	rotation = lerp_angle(rotation, target_rotation, 1 - exp(-get_process_delta_time()))
 
 
 func collect() -> void:
-	var xp_collected = xp_amount * (1 + player.character.modifiers[Modifiers.XP_GAIN]['value'])
+	var xp_collected = xp_amount * (1 + Global.get_player_modifier_value(Modifiers.XP_GAIN))
 	GameEvents.emit_xp_gem_collected(xp_collected)
 	queue_free()
 

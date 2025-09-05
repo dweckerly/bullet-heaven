@@ -21,6 +21,7 @@ var active_abilities: Array
 var character: Character
 
 func _ready() -> void:
+	Global.set_player(self)
 	player_hurtbox.body_entered.connect(on_body_entered)
 	player_hurtbox.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
@@ -28,6 +29,7 @@ func _ready() -> void:
 	update_health_display()
 	set_character(GameEvents.get_selected_character())
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
+	
 
 
 func _process(delta) -> void:
@@ -68,10 +70,9 @@ func set_character(_character: Character) -> void:
 		return
 	character = _character
 	sprite_2d.texture = _character.sprite
-	abilities.add_child(_character.starting_ability.ability_controller_scene.instantiate())
 	base_speed = velocity_component.max_speed * (1 + character.modifiers[Modifiers.MOVE_SPEED]['value'])
 	velocity_component.max_speed = base_speed
-	#GameEvents.emit_ability_upgrade_added(character.starting_ability, {})
+	abilities.add_child(_character.starting_ability.ability_controller_scene.instantiate())
 
 
 func on_body_entered(other_body: Node2D) -> void:
