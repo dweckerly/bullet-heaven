@@ -13,7 +13,6 @@ var target_xp: float = 5
 func _ready() -> void:
 	GameEvents.xp_gem_collected.connect(on_xp_gem_collected)
 
-
 func increment_xp(number: float) -> void:
 	current_xp = min(current_xp + number, target_xp)
 	xp_updated.emit(current_xp, target_xp)
@@ -23,7 +22,6 @@ func increment_xp(number: float) -> void:
 		current_xp = 0
 		xp_updated.emit(current_xp, target_xp)
 		level_up.emit(current_level)
-
 
 func on_xp_gem_collected(number:float) -> void:
 	increment_xp(number)

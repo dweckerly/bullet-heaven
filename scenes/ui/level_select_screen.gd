@@ -12,7 +12,10 @@ func _ready() -> void:
 		var level_card_instance = level_card_scene.instantiate() as LevelCard
 		grid_container.add_child(level_card_instance)
 		level_card_instance.set_level(level)
-		level_card_instance.selected.connect(on_level_selected.bind(level))
+		if not MetaProgression.save_data['levels'][level.id]['locked']:
+			level_card_instance.use_parent_material = true
+			level_card_instance.level_image.use_parent_material = true
+			level_card_instance.selected.connect(on_level_selected.bind(level))
 
 
 func on_level_selected(level: Level) -> void:

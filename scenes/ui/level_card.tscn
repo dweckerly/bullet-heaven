@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0uwl07clmfa3"]
+[gd_scene load_steps=6 format=3 uid="uid://d0uwl07clmfa3"]
 
 [ext_resource type="Script" uid="uid://bdj7ocju877pq" path="res://scenes/ui/level_card.gd" id="1_bclti"]
+[ext_resource type="Shader" uid="uid://ftnafb3h7jit" path="res://scenes/ui/grayscale.gdshader" id="2_07o60"]
 [ext_resource type="Texture2D" uid="uid://cb6h64oe18iur" path="res://assets/environment/temple-ex.png" id="2_xol0m"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xol0m"]
+shader = ExtResource("2_07o60")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_07o60"]
+shader = ExtResource("2_07o60")
+
 [node name="LevelCard" type="PanelContainer"]
+material = SubResource("ShaderMaterial_xol0m")
 custom_minimum_size = Vector2(76, 76)
 anchors_preset = 5
 anchor_left = 0.5
@@ -33,6 +41,7 @@ uppercase = true
 
 [node name="LevelImage" type="TextureRect" parent="VBoxContainer"]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_07o60")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4

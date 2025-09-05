@@ -48,6 +48,14 @@ var save_data: Dictionary = {
 			"locked" : false
 		}
 	},
+	"levels": {
+		"ht_1": {
+			"locked": false
+		},
+		"fl_2": {
+			"locked": true
+		}
+	},
 	"meta_upgrades": {}
 }
 
