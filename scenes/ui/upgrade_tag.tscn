@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtn2yus8qg4ym"]
+
+[ext_resource type="Texture2D" uid="uid://bdf3pns5inx7n" path="res://assets/objects/sword.png" id="1_rw8bl"]
+[ext_resource type="Script" uid="uid://sfmy22lirrik" path="res://scenes/ui/upgrade_tag.gd" id="1_yvibs"]
+
+[node name="UpgradeTag" type="MarginContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_yvibs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_rw8bl")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "1"

@@ -1,4 +1,5 @@
 extends Node
+class_name UpgradeManager
 
 const BASE_WEIGHT: int = 10
 const UPGRADE_CHOICES: int = 2

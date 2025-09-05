@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://brby7s3fqxh6g"]
+
+[ext_resource type="Script" uid="uid://cj0uf1x3pc3sy" path="res://scenes/ui/upgrade_ui.gd" id="1_a5oe3"]
+[ext_resource type="PackedScene" uid="uid://dtn2yus8qg4ym" path="res://scenes/ui/upgrade_tag.tscn" id="2_mki6m"]
+
+[node name="UpgradeUI" type="CanvasLayer"]
+script = ExtResource("1_a5oe3")
+upgrade_tag = ExtResource("2_mki6m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TagContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2

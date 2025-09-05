@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=4 uid="uid://dee4utyhq8weh"]
+[gd_scene load_steps=22 format=4 uid="uid://dee4utyhq8weh"]
 
 [ext_resource type="Script" uid="uid://dj67p71k6lrkh" path="res://scenes/levels/haunted_temple/haunted_temple.gd" id="1_k66ua"]
 [ext_resource type="PackedScene" uid="uid://hs1l8do1byc8" path="res://scenes/ui/end_screen.tscn" id="2_2tggm"]
 [ext_resource type="PackedScene" uid="uid://bqqtr0ke4p4rt" path="res://scenes/ui/vignette.tscn" id="3_cerp4"]
 [ext_resource type="PackedScene" uid="uid://d4icyd1v5h3ce" path="res://scenes/ui/arena_time_ui.tscn" id="4_nq8kr"]
 [ext_resource type="PackedScene" uid="uid://buvr0mebnlvyh" path="res://scenes/ui/xp_bar.tscn" id="5_qpo0u"]
+[ext_resource type="PackedScene" uid="uid://brby7s3fqxh6g" path="res://scenes/ui/upgrade_ui.tscn" id="5_wm0i1"]
 [ext_resource type="PackedScene" uid="uid://bbydsfpct2xlm" path="res://scenes/manager/arena_time_manager.tscn" id="6_rhtaa"]
 [ext_resource type="PackedScene" uid="uid://cht88nfjdx6c1" path="res://scenes/manager/enemy_manager.tscn" id="7_l23bf"]
 [ext_resource type="PackedScene" uid="uid://ba0o7fl2ld5sd" path="res://scenes/manager/xp_manager.tscn" id="8_1codc"]
@@ -681,6 +682,9 @@ end_screen_scene = ExtResource("2_2tggm")
 
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("4_nq8kr")]
 arena_time_manager = NodePath("../ArenaTimeManager")
+
+[node name="UpgradeUI" parent="." node_paths=PackedStringArray("upgrade_manager") instance=ExtResource("5_wm0i1")]
+upgrade_manager = NodePath("../UpgradeManager")
 
 [node name="XPBar" parent="." node_paths=PackedStringArray("xp_manager") instance=ExtResource("5_qpo0u")]
 xp_manager = NodePath("../XPManager")
