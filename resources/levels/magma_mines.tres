@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://cbru7gchsmllb"]
+
+[ext_resource type="Texture2D" uid="uid://bx0cbcgtr8biu" path="res://assets/environment/mines-ex.png" id="1_7k0du"]
+[ext_resource type="Script" uid="uid://lcc2wdbrj2si" path="res://resources/levels/level.gd" id="2_tq7it"]
+
+[resource]
+script = ExtResource("2_tq7it")
+id = "mm_3"
+display_name = "Magma Mines"
+description = "Beasts burn and toil aching to feast upon foolish adventurers who dare bathe in the glow of molten rock."
+picture = ExtResource("1_7k0du")
+path = "res://scenes/levels/frozen_labyrinth/frozen_labyrinth.tscn"

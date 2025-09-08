@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdsoxt8tbeewa"]
+[gd_scene load_steps=7 format=3 uid="uid://cdsoxt8tbeewa"]
 
 [ext_resource type="Script" uid="uid://cc65iixsbcuk1" path="res://scenes/ui/level_select_screen.gd" id="1_c166x"]
 [ext_resource type="Script" uid="uid://lcc2wdbrj2si" path="res://resources/levels/level.gd" id="2_0wd65"]
 [ext_resource type="Resource" uid="uid://cpgcdo2yry280" path="res://resources/levels/haunted_temple.tres" id="3_tqndh"]
 [ext_resource type="Resource" uid="uid://t4pc2h3f5gkn" path="res://resources/levels/frozen_labyrinth.tres" id="4_a0w5u"]
+[ext_resource type="Resource" uid="uid://cbru7gchsmllb" path="res://resources/levels/magma_mines.tres" id="5_tqndh"]
 [ext_resource type="PackedScene" uid="uid://c2pjn075ofppf" path="res://scenes/ui/sound_button.tscn" id="7_ek4dv"]
 
 [node name="LevelSelectScreen" type="CanvasLayer"]
 script = ExtResource("1_c166x")
-levels = Array[ExtResource("2_0wd65")]([ExtResource("3_tqndh"), ExtResource("4_a0w5u")])
+levels = Array[ExtResource("2_0wd65")]([ExtResource("3_tqndh"), ExtResource("4_a0w5u"), ExtResource("5_tqndh")])
 
 [node name="BackButton" parent="." instance=ExtResource("7_ek4dv")]
 unique_name_in_owner = true
