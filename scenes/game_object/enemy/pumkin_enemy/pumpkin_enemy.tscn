@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bal7kja5odkxm"]
+[gd_scene load_steps=23 format=3 uid="uid://bal7kja5odkxm"]
 
 [ext_resource type="Script" uid="uid://c46g8eqpcm2f2" path="res://scenes/game_object/enemy/pumkin_enemy/pumpkin_enemy.gd" id="1_sbtei"]
 [ext_resource type="PackedScene" uid="uid://c106e8kkata6g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="2_ahvpr"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dfbdxgtbvs2hr" path="res://assets/audio/sfx/Enemy hit 005.wav" id="7_bma2m"]
 [ext_resource type="PackedScene" uid="uid://bi0t0ayosgcdb" path="res://scenes/component/health_component.tscn" id="8_q4wy3"]
 [ext_resource type="PackedScene" uid="uid://bybmmy6ar8yku" path="res://scenes/component/xp_drop_component.tscn" id="9_xsy45"]
+[ext_resource type="PackedScene" uid="uid://d22q6awbvvu7" path="res://scenes/game_object/xp_gem/xp_gem_blue.tscn" id="10_gijdd"]
 [ext_resource type="PackedScene" uid="uid://by4cue4snomis" path="res://scenes/component/velocity_component.tscn" id="10_uppvw"]
 [ext_resource type="PackedScene" uid="uid://c12puifh87qrt" path="res://scenes/component/hit_flash_component.tscn" id="11_vagmi"]
 [ext_resource type="Shader" uid="uid://dr0wtfak85caa" path="res://scenes/component/hit_flash_component.gdshader" id="12_pflps"]
@@ -110,6 +111,7 @@ max_health = 1000.0
 
 [node name="XPDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("9_xsy45")]
 health_component = NodePath("../HealthComponent")
+gem_scene = ExtResource("10_gijdd")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("10_uppvw")]
 max_speed = 30
