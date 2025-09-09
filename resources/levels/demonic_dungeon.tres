@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://bsrul4aiv02is"]
+
+[ext_resource type="Texture2D" uid="uid://lywl44xky14o" path="res://assets/environment/dungeon-ex.png" id="1_7jkns"]
+[ext_resource type="Script" uid="uid://lcc2wdbrj2si" path="res://resources/levels/level.gd" id="2_25xyc"]
+
+[resource]
+script = ExtResource("2_25xyc")
+id = "dd_4"
+display_name = "Demonic Dungeon"
+description = "Deadly demonic denizens await to enslave all outsiders in this harrowing  hellscape."
+picture = ExtResource("1_7jkns")
+path = "res://scenes/levels/frozen_labyrinth/frozen_labyrinth.tscn"

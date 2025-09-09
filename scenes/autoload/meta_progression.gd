@@ -57,6 +57,9 @@ var save_data: Dictionary = {
 		},
 		"mm_3": {
 			"locked": true
+		},
+		"dd_4": {
+			"locked": true
 		}
 	},
 	"meta_upgrades": {}
