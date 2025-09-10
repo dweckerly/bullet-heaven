@@ -30,7 +30,10 @@ var equipment_dict: Dictionary = {
 func _ready() -> void:
 	for key in MetaProgression.save_data["characters"]:
 		if not MetaProgression.save_data["characters"][key]["locked"]:
-			upgrade_pool.add_item(weapon_dict[key], BASE_WEIGHT)
+			if key == 'priest':
+				upgrade_pool.add_item(weapon_dict[key], 1000)
+			else:
+				upgrade_pool.add_item(weapon_dict[key], BASE_WEIGHT)
 	
 	for key in equipment_dict:
 		if not MetaProgression.save_data["equipment"][key]["locked"]:

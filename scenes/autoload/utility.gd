@@ -1,12 +1,14 @@
 extends Node
 
-
 func get_random_point_in_radius(center: Vector2, max_radius: float) -> Vector2:
 	var angle = randf() * 2 * PI
 	var distance = sqrt(randf()) * max_radius
 	var offset = Vector2(cos(angle) * distance, sin(angle) * distance)
 	return center + offset
 
+func random_point_on_circle_edge(center: Vector2, radius: float) -> Vector2:
+	var angle = randf() * 2 * PI
+	return center + Vector2(cos(angle), sin(angle)) * radius
 
 func get_random_top_position_within_view(player_pos: Vector2) -> Vector2:
 	#640 360

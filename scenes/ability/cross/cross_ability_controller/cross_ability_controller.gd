@@ -12,6 +12,8 @@ var cross_scale: float = 1.0
 var axe_duration: float = 1.0
 var base_wait_time: float
 
+var duplicate_offset
+
 func _ready() -> void:
 	timer.timeout.connect(on_timer_timeout)
 	base_wait_time = timer.wait_time - (timer.wait_time * Global.get_player_modifier_value(Modifiers.COOLDOWN))
@@ -24,13 +26,23 @@ func on_timer_timeout() -> void:
 	if foreground == null:
 		return
 	
+	var first_spawn_pos = Vector2.ZERO
+	var spawn_pos = Vector2.ZERO
 	for i in level:
 		var cross_instance = cross_ability_scene.instantiate() as CrossAbility
 		cross_instance.scale_mod = cross_scale
 		foreground.add_child(cross_instance)
-		cross_instance.global_position = Global.get_player_global_pos()
+		if i == 0:
+			first_spawn_pos = Global.get_player_global_pos()
+			spawn_pos = first_spawn_pos
+		else:
+			spawn_pos = Utility.random_point_on_circle_edge(
+				first_spawn_pos, 32.0 * cross_instance.scale_mod
+			)
+		cross_instance.global_position = spawn_pos
 		cross_instance.hitbox_component.damage = base_damage * \
 			(1 + Global.get_player_modifier_value(Modifiers.DAMAGE))
+		await get_tree().create_timer(0.3).timeout
 		
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
