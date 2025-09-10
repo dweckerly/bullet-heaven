@@ -731,6 +731,6 @@ position = Vector2(-810, -1380)
 character_id = "druid"
 
 [node name="TreasureChest" parent="Entities" instance=ExtResource("20_j7acx")]
-position = Vector2(536, -435)
+position = Vector2(536, -444)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
