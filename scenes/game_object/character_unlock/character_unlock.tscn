@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://0fxofjoefxb4"]
+[gd_scene load_steps=14 format=3 uid="uid://0fxofjoefxb4"]
 
 [ext_resource type="Script" uid="uid://ygy8wdlt2gji" path="res://scenes/game_object/character_unlock/character_unlock.gd" id="1_fsjon"]
 [ext_resource type="Texture2D" uid="uid://281l704rfda7" path="res://assets/objects/heart_empty.png" id="1_i4ygj"]
+[ext_resource type="PackedScene" uid="uid://cbwrvdlev5onh" path="res://scenes/ui/character_unlock_screen.tscn" id="2_agbn8"]
 [ext_resource type="Texture2D" uid="uid://ba43xtx56mt8k" path="res://assets/misc/blood.png" id="2_fsjon"]
 
 [sub_resource type="Animation" id="Animation_uo5l6"]
@@ -106,6 +107,7 @@ radius = 15.0
 
 [node name="CharacterUnlock" type="Node2D"]
 script = ExtResource("1_fsjon")
+unlock_screen = ExtResource("2_agbn8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

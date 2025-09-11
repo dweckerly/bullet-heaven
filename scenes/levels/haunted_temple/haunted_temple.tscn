@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dee4utyhq8weh"]
+[gd_scene load_steps=24 format=4 uid="uid://dee4utyhq8weh"]
 
 [ext_resource type="Script" uid="uid://dj67p71k6lrkh" path="res://scenes/levels/haunted_temple/haunted_temple.gd" id="1_k66ua"]
 [ext_resource type="PackedScene" uid="uid://hs1l8do1byc8" path="res://scenes/ui/end_screen.tscn" id="2_2tggm"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://hqabvv1tlhpl" path="res://scenes/game_object/spawn_area/spawn_area.tscn" id="12_edks2"]
 [ext_resource type="PackedScene" uid="uid://cqvibq1wff0hc" path="res://scenes/game_object/player/player.tscn" id="12_uqys5"]
 [ext_resource type="PackedScene" uid="uid://0fxofjoefxb4" path="res://scenes/game_object/character_unlock/character_unlock.tscn" id="15_4d111"]
+[ext_resource type="Resource" uid="uid://bp4wt2fa40ou3" path="res://resources/characters/druid.tres" id="20_gpiwb"]
 [ext_resource type="PackedScene" uid="uid://b7gqjycfr0wkl" path="res://scenes/game_object/treasure_chest.tscn" id="20_j7acx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_blune"]
@@ -727,8 +728,8 @@ unique_name_in_owner = true
 position = Vector2(152, 218)
 
 [node name="CharacterUnlock" parent="Entities" instance=ExtResource("15_4d111")]
-position = Vector2(-810, -1380)
-character_id = "druid"
+position = Vector2(-180, 62)
+character = ExtResource("20_gpiwb")
 
 [node name="TreasureChest" parent="Entities" instance=ExtResource("20_j7acx")]
 position = Vector2(536, -444)
