@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://0fxofjoefxb4"]
+[gd_scene load_steps=16 format=3 uid="uid://0fxofjoefxb4"]
 
 [ext_resource type="Script" uid="uid://ygy8wdlt2gji" path="res://scenes/game_object/character_unlock/character_unlock.gd" id="1_fsjon"]
 [ext_resource type="Texture2D" uid="uid://281l704rfda7" path="res://assets/objects/heart_empty.png" id="1_i4ygj"]
 [ext_resource type="PackedScene" uid="uid://cbwrvdlev5onh" path="res://scenes/ui/character_unlock_screen.tscn" id="2_agbn8"]
 [ext_resource type="Texture2D" uid="uid://ba43xtx56mt8k" path="res://assets/misc/blood.png" id="2_fsjon"]
+[ext_resource type="Texture2D" uid="uid://bop2rorwshhw3" path="res://assets/misc/coin.png" id="5_uo5l6"]
 
 [sub_resource type="Animation" id="Animation_uo5l6"]
 length = 0.001
@@ -102,6 +103,19 @@ color_ramp = SubResource("GradientTexture1D_bwiks")
 hue_variation_min = -2.23517e-08
 hue_variation_max = 0.1
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uo6wc"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 100.0
+initial_velocity_max = 125.0
+angular_velocity_min = 50.0
+angular_velocity_max = 300.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.5
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_enft1"]
 radius = 15.0
 
@@ -122,11 +136,21 @@ position = Vector2(0, -2.10685)
 z_index = 1
 texture = ExtResource("1_i4ygj")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Visuals"]
+[node name="BloodParticles" type="GPUParticles2D" parent="Visuals"]
 position = Vector2(0, -0.653479)
 amount = 300
 texture = ExtResource("2_fsjon")
 process_material = SubResource("ParticleProcessMaterial_ftfqx")
+
+[node name="GoldParticles" type="GPUParticles2D" parent="Visuals"]
+emitting = false
+amount = 150
+texture = ExtResource("5_uo5l6")
+lifetime = 2.6
+one_shot = true
+explosiveness = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_uo6wc")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
